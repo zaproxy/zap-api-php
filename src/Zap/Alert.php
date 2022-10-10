@@ -6,18 +6,16 @@
  *
  * Copyright 2022 the ZAP development team
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
+
 
 namespace Zap;
 
@@ -26,164 +24,115 @@ namespace Zap;
  */
 class Alert
 {
-    public function __construct(private Zap $zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
 
     /**
-     * Gets the alert with the given ID, the corresponding HTTP message can be obtained with the
-     * 'messageId' field and 'message' API method.
-     *
-     * @param mixed $id
+     * Gets the alert with the given ID, the corresponding HTTP message can be obtained with the 'messageId' field and
+     * 'message' API method
      */
     public function alert($id, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'alert/view/alert/',
-            [
-                'id' => $id, 'apikey' => $apikey,
-            ]
-        )['alert'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/alert/', [
+            'id' => $id,
+            'apikey' => $apikey,
+        ])['alert'] ?? null;
     }
 
     /**
-     * Gets the alerts raised by ZAP, optionally filtering by URL or riskId, and paginating with 'start'
-     * position and 'count' of alerts.
-     *
-     * @param null|mixed $baseurl
-     * @param null|mixed $start
-     * @param null|mixed $count
-     * @param null|mixed $riskid
+     * Gets the alerts raised by ZAP, optionally filtering by URL or riskId, and paginating with 'start' position and
+     * 'count' of alerts
      */
-    public function alerts(
-        $baseurl = null,
-        $start = null,
-        $count = null,
-        $riskid = null,
-        string $apikey = ''
-    ) {
+    public function alerts($baseurl = null, $start = null, $count = null, $riskid = null, string $apikey = '')
+    {
         $params = [
             'apikey' => $apikey,
         ];
-        if (null !== $baseurl) {
+        if ($baseurl !== null) {
             $params['baseurl'] = $baseurl;
         }
-        if (null !== $start) {
+        if ($start !== null) {
             $params['start'] = $start;
         }
-        if (null !== $count) {
+        if ($count !== null) {
             $params['count'] = $count;
         }
-        if (null !== $riskid) {
+        if ($riskid !== null) {
             $params['riskId'] = $riskid;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'alert/view/alerts/',
-            $params
-        )['alerts'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/alerts/', $params)['alerts'] ?? null;
     }
 
     /**
-     * Gets number of alerts grouped by each risk level, optionally filtering by URL.
-     *
-     * @param null|mixed $baseurl
+     * Gets number of alerts grouped by each risk level, optionally filtering by URL
      */
     public function alertsSummary($baseurl = null, string $apikey = '')
     {
         $params = [
             'apikey' => $apikey,
         ];
-        if (null !== $baseurl) {
+        if ($baseurl !== null) {
             $params['baseurl'] = $baseurl;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'alert/view/alertsSummary/',
-            $params
-        )['alertsSummary'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/alertsSummary/', $params)['alertsSummary'] ?? null;
     }
 
     /**
-     * Gets the number of alerts, optionally filtering by URL or riskId.
-     *
-     * @param null|mixed $baseurl
-     * @param null|mixed $riskid
+     * Gets the number of alerts, optionally filtering by URL or riskId
      */
-    public function numberOfAlerts(
-        $baseurl = null,
-        $riskid = null,
-        string $apikey = ''
-    ) {
+    public function numberOfAlerts($baseurl = null, $riskid = null, string $apikey = '')
+    {
         $params = [
             'apikey' => $apikey,
         ];
-        if (null !== $baseurl) {
+        if ($baseurl !== null) {
             $params['baseurl'] = $baseurl;
         }
-        if (null !== $riskid) {
+        if ($riskid !== null) {
             $params['riskId'] = $riskid;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'alert/view/numberOfAlerts/',
-            $params
-        )['numberOfAlerts'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/numberOfAlerts/', $params)['numberOfAlerts'] ?? null;
     }
 
     /**
-     * Gets a summary of the alerts, optionally filtered by a 'url'. If 'recurse' is true then all alerts
-     * that apply to urls that start with the specified 'url' will be returned, otherwise only those on
-     * exactly the same 'url' (ignoring url parameters).
-     *
-     * @param null|mixed $url
-     * @param null|mixed $recurse
+     * Gets a summary of the alerts, optionally filtered by a 'url'. If 'recurse' is true then all alerts that apply to
+     * urls that start with the specified 'url' will be returned, otherwise only those on exactly the same 'url'
+     * (ignoring url parameters)
      */
-    public function alertsByRisk(
-        $url = null,
-        $recurse = null,
-        string $apikey = ''
-    ) {
+    public function alertsByRisk($url = null, $recurse = null, string $apikey = '')
+    {
         $params = [
             'apikey' => $apikey,
         ];
-        if (null !== $url) {
+        if ($url !== null) {
             $params['url'] = $url;
         }
-        if (null !== $recurse) {
+        if ($recurse !== null) {
             $params['recurse'] = $recurse;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'alert/view/alertsByRisk/',
-            $params
-        )['alertsByRisk'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/alertsByRisk/', $params)['alertsByRisk'] ?? null;
     }
 
     /**
-     * Gets a count of the alerts, optionally filtered as per alertsPerRisk.
-     *
-     * @param null|mixed $url
-     * @param null|mixed $recurse
+     * Gets a count of the alerts, optionally filtered as per alertsPerRisk
      */
-    public function alertCountsByRisk(
-        $url = null,
-        $recurse = null,
-        string $apikey = ''
-    ) {
+    public function alertCountsByRisk($url = null, $recurse = null, string $apikey = '')
+    {
         $params = [
             'apikey' => $apikey,
         ];
-        if (null !== $url) {
+        if ($url !== null) {
             $params['url'] = $url;
         }
-        if (null !== $recurse) {
+        if ($recurse !== null) {
             $params['recurse'] = $recurse;
         }
-
         return $this->zap->request(
-            $this->zap->base.'alert/view/alertCountsByRisk/',
+            $this->zap->base . 'alert/view/alertCountsByRisk/',
             $params
         )['alertCountsByRisk'] ?? null;
     }
@@ -193,85 +142,48 @@ class Alert
      */
     public function deleteAllAlerts(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'alert/action/deleteAllAlerts/',
-            [
-                'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'alert/action/deleteAllAlerts/', [
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
      * Deletes the alert with the given ID.
-     *
-     * @param mixed $id
      */
     public function deleteAlert($id, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'alert/action/deleteAlert/',
-            [
-                'id' => $id, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'alert/action/deleteAlert/', [
+            'id' => $id,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
      * Update the confidence of the alerts.
-     *
-     * @param mixed $ids
-     * @param mixed $confidenceid
      */
-    public function updateAlertsConfidence(
-        $ids,
-        $confidenceid,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'alert/action/updateAlertsConfidence/',
-            [
-                'ids' => $ids,
-                'confidenceId' => $confidenceid, 'apikey' => $apikey,
-            ]
-        );
+    public function updateAlertsConfidence($ids, $confidenceid, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'alert/action/updateAlertsConfidence/', [
+            'ids' => $ids,
+            'confidenceId' => $confidenceid,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
      * Update the risk of the alerts.
-     *
-     * @param mixed $ids
-     * @param mixed $riskid
      */
-    public function updateAlertsRisk(
-        $ids,
-        $riskid,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'alert/action/updateAlertsRisk/',
-            [
-                'ids' => $ids,
-                'riskId' => $riskid, 'apikey' => $apikey,
-            ]
-        );
+    public function updateAlertsRisk($ids, $riskid, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'alert/action/updateAlertsRisk/', [
+            'ids' => $ids,
+            'riskId' => $riskid,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
      * Update the alert with the given ID, with the provided details.
-     *
-     * @param mixed      $id
-     * @param mixed      $name
-     * @param mixed      $riskid
-     * @param mixed      $confidenceid
-     * @param mixed      $description
-     * @param null|mixed $param
-     * @param null|mixed $attack
-     * @param null|mixed $otherinfo
-     * @param null|mixed $solution
-     * @param null|mixed $references
-     * @param null|mixed $evidence
-     * @param null|mixed $cweid
-     * @param null|mixed $wascid
      */
     public function updateAlert(
         $id,
@@ -294,56 +206,39 @@ class Alert
             'name' => $name,
             'riskId' => $riskid,
             'confidenceId' => $confidenceid,
-            'description' => $description, 'apikey' => $apikey,
+            'description' => $description,
+            'apikey' => $apikey,
         ];
-        if (null !== $param) {
+        if ($param !== null) {
             $params['param'] = $param;
         }
-        if (null !== $attack) {
+        if ($attack !== null) {
             $params['attack'] = $attack;
         }
-        if (null !== $otherinfo) {
+        if ($otherinfo !== null) {
             $params['otherInfo'] = $otherinfo;
         }
-        if (null !== $solution) {
+        if ($solution !== null) {
             $params['solution'] = $solution;
         }
-        if (null !== $references) {
+        if ($references !== null) {
             $params['references'] = $references;
         }
-        if (null !== $evidence) {
+        if ($evidence !== null) {
             $params['evidence'] = $evidence;
         }
-        if (null !== $cweid) {
+        if ($cweid !== null) {
             $params['cweId'] = $cweid;
         }
-        if (null !== $wascid) {
+        if ($wascid !== null) {
             $params['wascId'] = $wascid;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'alert/action/updateAlert/',
-            $params
-        );
+        return $this->zap->request($this->zap->base . 'alert/action/updateAlert/', $params);
     }
 
     /**
-     * Add an alert associated with the given message ID, with the provided details. (The ID of the
-     * created alert is returned.).
-     *
-     * @param mixed      $messageid
-     * @param mixed      $name
-     * @param mixed      $riskid
-     * @param mixed      $confidenceid
-     * @param mixed      $description
-     * @param null|mixed $param
-     * @param null|mixed $attack
-     * @param null|mixed $otherinfo
-     * @param null|mixed $solution
-     * @param null|mixed $references
-     * @param null|mixed $evidence
-     * @param null|mixed $cweid
-     * @param null|mixed $wascid
+     * Add an alert associated with the given message ID, with the provided details. (The ID of the created alert is
+     * returned.)
      */
     public function addAlert(
         $messageid,
@@ -366,36 +261,33 @@ class Alert
             'name' => $name,
             'riskId' => $riskid,
             'confidenceId' => $confidenceid,
-            'description' => $description, 'apikey' => $apikey,
+            'description' => $description,
+            'apikey' => $apikey,
         ];
-        if (null !== $param) {
+        if ($param !== null) {
             $params['param'] = $param;
         }
-        if (null !== $attack) {
+        if ($attack !== null) {
             $params['attack'] = $attack;
         }
-        if (null !== $otherinfo) {
+        if ($otherinfo !== null) {
             $params['otherInfo'] = $otherinfo;
         }
-        if (null !== $solution) {
+        if ($solution !== null) {
             $params['solution'] = $solution;
         }
-        if (null !== $references) {
+        if ($references !== null) {
             $params['references'] = $references;
         }
-        if (null !== $evidence) {
+        if ($evidence !== null) {
             $params['evidence'] = $evidence;
         }
-        if (null !== $cweid) {
+        if ($cweid !== null) {
             $params['cweId'] = $cweid;
         }
-        if (null !== $wascid) {
+        if ($wascid !== null) {
             $params['wascId'] = $wascid;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'alert/action/addAlert/',
-            $params
-        );
+        return $this->zap->request($this->zap->base . 'alert/action/addAlert/', $params);
     }
 }

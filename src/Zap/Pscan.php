@@ -6,18 +6,16 @@
  *
  * Copyright 2022 the ZAP development team
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
+
 
 namespace Zap;
 
@@ -26,7 +24,9 @@ namespace Zap;
  */
 class Pscan
 {
-    public function __construct(private Zap $zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -36,25 +36,19 @@ class Pscan
      */
     public function scanOnlyInScope(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/view/scanOnlyInScope/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['scanOnlyInScope'] ?? null;
+        return $this->zap->request($this->zap->base . 'pscan/view/scanOnlyInScope/', [
+            'apikey' => $apikey,
+        ])['scanOnlyInScope'] ?? null;
     }
 
     /**
-     * The number of records the passive scanner still has to scan.
+     * The number of records the passive scanner still has to scan
      */
     public function recordsToScan(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/view/recordsToScan/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['recordsToScan'] ?? null;
+        return $this->zap->request($this->zap->base . 'pscan/view/recordsToScan/', [
+            'apikey' => $apikey,
+        ])['recordsToScan'] ?? null;
     }
 
     /**
@@ -62,12 +56,9 @@ class Pscan
      */
     public function scanners(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/view/scanners/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['scanners'] ?? null;
+        return $this->zap->request($this->zap->base . 'pscan/view/scanners/', [
+            'apikey' => $apikey,
+        ])['scanners'] ?? null;
     }
 
     /**
@@ -75,12 +66,9 @@ class Pscan
      */
     public function currentRule(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/view/currentRule/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['currentRule'] ?? null;
+        return $this->zap->request($this->zap->base . 'pscan/view/currentRule/', [
+            'apikey' => $apikey,
+        ])['currentRule'] ?? null;
     }
 
     /**
@@ -88,12 +76,9 @@ class Pscan
      */
     public function currentTasks(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/view/currentTasks/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['currentTasks'] ?? null;
+        return $this->zap->request($this->zap->base . 'pscan/view/currentTasks/', [
+            'apikey' => $apikey,
+        ])['currentTasks'] ?? null;
     }
 
     /**
@@ -101,134 +86,97 @@ class Pscan
      */
     public function maxAlertsPerRule(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/view/maxAlertsPerRule/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['maxAlertsPerRule'] ?? null;
+        return $this->zap->request($this->zap->base . 'pscan/view/maxAlertsPerRule/', [
+            'apikey' => $apikey,
+        ])['maxAlertsPerRule'] ?? null;
     }
 
     /**
      * Sets whether or not the passive scanning is enabled (Note: the enabled state is not persisted).
-     *
-     * @param mixed $enabled
      */
     public function setEnabled($enabled, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/setEnabled/',
-            [
-                'enabled' => $enabled, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/setEnabled/', [
+            'enabled' => $enabled,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
      * Sets whether or not the passive scan should be performed only on messages that are in scope.
-     *
-     * @param mixed $onlyinscope
      */
     public function setScanOnlyInScope($onlyinscope, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/setScanOnlyInScope/',
-            [
-                'onlyInScope' => $onlyinscope, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/setScanOnlyInScope/', [
+            'onlyInScope' => $onlyinscope,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Enables all passive scan rules.
+     * Enables all passive scan rules
      */
     public function enableAllScanners(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/enableAllScanners/',
-            [
-                'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/enableAllScanners/', [
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Disables all passive scan rules.
+     * Disables all passive scan rules
      */
     public function disableAllScanners(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/disableAllScanners/',
-            [
-                'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/disableAllScanners/', [
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Enables all passive scan rules with the given IDs (comma separated list of IDs).
-     *
-     * @param mixed $ids
+     * Enables all passive scan rules with the given IDs (comma separated list of IDs)
      */
     public function enableScanners($ids, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/enableScanners/',
-            [
-                'ids' => $ids, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/enableScanners/', [
+            'ids' => $ids,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Disables all passive scan rules with the given IDs (comma separated list of IDs).
-     *
-     * @param mixed $ids
+     * Disables all passive scan rules with the given IDs (comma separated list of IDs)
      */
     public function disableScanners($ids, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/disableScanners/',
-            [
-                'ids' => $ids, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/disableScanners/', [
+            'ids' => $ids,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Sets the alert threshold of the passive scanner with the given ID, accepted values for alert
-     * threshold: OFF, DEFAULT, LOW, MEDIUM and HIGH.
-     *
-     * @param mixed $id
-     * @param mixed $alertthreshold
+     * Sets the alert threshold of the passive scanner with the given ID, accepted values for alert threshold: OFF,
+     * DEFAULT, LOW, MEDIUM and HIGH
      */
-    public function setScannerAlertThreshold(
-        $id,
-        $alertthreshold,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/setScannerAlertThreshold/',
-            [
-                'id' => $id,
-                'alertThreshold' => $alertthreshold, 'apikey' => $apikey,
-            ]
-        );
+    public function setScannerAlertThreshold($id, $alertthreshold, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'pscan/action/setScannerAlertThreshold/', [
+            'id' => $id,
+            'alertThreshold' => $alertthreshold,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
      * Sets the maximum number of alerts a passive scan rule should raise.
-     *
-     * @param mixed $maxalerts
      */
     public function setMaxAlertsPerRule($maxalerts, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/setMaxAlertsPerRule/',
-            [
-                'maxAlerts' => $maxalerts, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/setMaxAlertsPerRule/', [
+            'maxAlerts' => $maxalerts,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
@@ -236,12 +184,9 @@ class Pscan
      */
     public function disableAllTags(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/disableAllTags/',
-            [
-                'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/disableAllTags/', [
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
@@ -249,12 +194,9 @@ class Pscan
      */
     public function enableAllTags(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/enableAllTags/',
-            [
-                'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/enableAllTags/', [
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
@@ -262,11 +204,8 @@ class Pscan
      */
     public function clearQueue(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'pscan/action/clearQueue/',
-            [
-                'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'pscan/action/clearQueue/', [
+            'apikey' => $apikey,
+        ]);
     }
 }

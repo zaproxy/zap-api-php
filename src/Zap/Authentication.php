@@ -6,18 +6,16 @@
  *
  * Copyright 2022 the ZAP development team
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
+
 
 namespace Zap;
 
@@ -26,7 +24,9 @@ namespace Zap;
  */
 class Authentication
 {
-    public function __construct(private Zap $zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -36,80 +36,57 @@ class Authentication
      */
     public function getSupportedAuthenticationMethods(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'authentication/view/getSupportedAuthenticationMethods/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['getSupportedAuthenticationMethods'] ?? null;
+        return $this->zap->request($this->zap->base . 'authentication/view/getSupportedAuthenticationMethods/', [
+            'apikey' => $apikey,
+        ])['getSupportedAuthenticationMethods'] ?? null;
     }
 
     /**
      * Gets the configuration parameters for the authentication method with the given name.
-     *
-     * @param mixed $authmethodname
      */
     public function getAuthenticationMethodConfigParams($authmethodname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'authentication/view/getAuthenticationMethodConfigParams/',
-            [
-                'authMethodName' => $authmethodname, 'apikey' => $apikey,
-            ]
-        )['getAuthenticationMethodConfigParams'] ?? null;
+        return $this->zap->request($this->zap->base . 'authentication/view/getAuthenticationMethodConfigParams/', [
+            'authMethodName' => $authmethodname,
+            'apikey' => $apikey,
+        ])['getAuthenticationMethodConfigParams'] ?? null;
     }
 
     /**
      * Gets the name of the authentication method for the context with the given ID.
-     *
-     * @param mixed $contextid
      */
     public function getAuthenticationMethod($contextid, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'authentication/view/getAuthenticationMethod/',
-            [
-                'contextId' => $contextid, 'apikey' => $apikey,
-            ]
-        )['getAuthenticationMethod'] ?? null;
+        return $this->zap->request($this->zap->base . 'authentication/view/getAuthenticationMethod/', [
+            'contextId' => $contextid,
+            'apikey' => $apikey,
+        ])['getAuthenticationMethod'] ?? null;
     }
 
     /**
      * Gets the logged in indicator for the context with the given ID.
-     *
-     * @param mixed $contextid
      */
     public function getLoggedInIndicator($contextid, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'authentication/view/getLoggedInIndicator/',
-            [
-                'contextId' => $contextid, 'apikey' => $apikey,
-            ]
-        )['getLoggedInIndicator'] ?? null;
+        return $this->zap->request($this->zap->base . 'authentication/view/getLoggedInIndicator/', [
+            'contextId' => $contextid,
+            'apikey' => $apikey,
+        ])['getLoggedInIndicator'] ?? null;
     }
 
     /**
      * Gets the logged out indicator for the context with the given ID.
-     *
-     * @param mixed $contextid
      */
     public function getLoggedOutIndicator($contextid, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'authentication/view/getLoggedOutIndicator/',
-            [
-                'contextId' => $contextid, 'apikey' => $apikey,
-            ]
-        )['getLoggedOutIndicator'] ?? null;
+        return $this->zap->request($this->zap->base . 'authentication/view/getLoggedOutIndicator/', [
+            'contextId' => $contextid,
+            'apikey' => $apikey,
+        ])['getLoggedOutIndicator'] ?? null;
     }
 
     /**
      * Sets the authentication method for the context with the given ID.
-     *
-     * @param mixed      $contextid
-     * @param mixed      $authmethodname
-     * @param null|mixed $authmethodconfigparams
      */
     public function setAuthenticationMethod(
         $contextid,
@@ -119,55 +96,36 @@ class Authentication
     ) {
         $params = [
             'contextId' => $contextid,
-            'authMethodName' => $authmethodname, 'apikey' => $apikey,
+            'authMethodName' => $authmethodname,
+            'apikey' => $apikey,
         ];
-        if (null !== $authmethodconfigparams) {
+        if ($authmethodconfigparams !== null) {
             $params['authMethodConfigParams'] = $authmethodconfigparams;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'authentication/action/setAuthenticationMethod/',
-            $params
-        );
+        return $this->zap->request($this->zap->base . 'authentication/action/setAuthenticationMethod/', $params);
     }
 
     /**
      * Sets the logged in indicator for the context with the given ID.
-     *
-     * @param mixed $contextid
-     * @param mixed $loggedinindicatorregex
      */
-    public function setLoggedInIndicator(
-        $contextid,
-        $loggedinindicatorregex,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'authentication/action/setLoggedInIndicator/',
-            [
-                'contextId' => $contextid,
-                'loggedInIndicatorRegex' => $loggedinindicatorregex, 'apikey' => $apikey,
-            ]
-        );
+    public function setLoggedInIndicator($contextid, $loggedinindicatorregex, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'authentication/action/setLoggedInIndicator/', [
+            'contextId' => $contextid,
+            'loggedInIndicatorRegex' => $loggedinindicatorregex,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
      * Sets the logged out indicator for the context with the given ID.
-     *
-     * @param mixed $contextid
-     * @param mixed $loggedoutindicatorregex
      */
-    public function setLoggedOutIndicator(
-        $contextid,
-        $loggedoutindicatorregex,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'authentication/action/setLoggedOutIndicator/',
-            [
-                'contextId' => $contextid,
-                'loggedOutIndicatorRegex' => $loggedoutindicatorregex, 'apikey' => $apikey,
-            ]
-        );
+    public function setLoggedOutIndicator($contextid, $loggedoutindicatorregex, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'authentication/action/setLoggedOutIndicator/', [
+            'contextId' => $contextid,
+            'loggedOutIndicatorRegex' => $loggedoutindicatorregex,
+            'apikey' => $apikey,
+        ]);
     }
 }
