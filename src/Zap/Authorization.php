@@ -6,18 +6,16 @@
  *
  * Copyright 2022 the ZAP development team
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
+
 
 namespace Zap;
 
@@ -26,38 +24,29 @@ namespace Zap;
  */
 class Authorization
 {
-    public function __construct(private Zap $zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
 
     /**
-     * Obtains all the configuration of the authorization detection method that is currently set for a
-     * context.
-     *
-     * @param mixed $contextid
+     * Obtains all the configuration of the authorization detection method that is currently set for a context.
      */
     public function getAuthorizationDetectionMethod($contextid, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'authorization/view/getAuthorizationDetectionMethod/',
-            [
-                'contextId' => $contextid, 'apikey' => $apikey,
-            ]
-        )['getAuthorizationDetectionMethod'] ?? null;
+        return $this->zap->request($this->zap->base . 'authorization/view/getAuthorizationDetectionMethod/', [
+            'contextId' => $contextid,
+            'apikey' => $apikey,
+        ])['getAuthorizationDetectionMethod'] ?? null;
     }
 
     /**
-     * Sets the authorization detection method for a context as one that identifies un-authorized messages
-     * based on: the message's status code or a regex pattern in the response's header or body. Also,
-     * whether all conditions must match or just some can be specified via the logicalOperator parameter,
-     * which accepts two values: "AND" (default), "OR".
-     *
-     * @param mixed      $contextid
-     * @param null|mixed $headerregex
-     * @param null|mixed $bodyregex
-     * @param null|mixed $statuscode
-     * @param null|mixed $logicaloperator
+     * Sets the authorization detection method for a context as one that identifies un-authorized messages based on: the
+     * message's status code or a regex pattern in the response's header or body. Also, whether all conditions must
+     * match or just some can be specified via the logicalOperator parameter, which accepts two values: "AND" (default),
+     * "OR".
      */
     public function setBasicAuthorizationDetectionMethod(
         $contextid,
@@ -68,23 +57,23 @@ class Authorization
         string $apikey = ''
     ) {
         $params = [
-            'contextId' => $contextid, 'apikey' => $apikey,
+            'contextId' => $contextid,
+            'apikey' => $apikey,
         ];
-        if (null !== $headerregex) {
+        if ($headerregex !== null) {
             $params['headerRegex'] = $headerregex;
         }
-        if (null !== $bodyregex) {
+        if ($bodyregex !== null) {
             $params['bodyRegex'] = $bodyregex;
         }
-        if (null !== $statuscode) {
+        if ($statuscode !== null) {
             $params['statusCode'] = $statuscode;
         }
-        if (null !== $logicaloperator) {
+        if ($logicaloperator !== null) {
             $params['logicalOperator'] = $logicaloperator;
         }
-
         return $this->zap->request(
-            $this->zap->base.'authorization/action/setBasicAuthorizationDetectionMethod/',
+            $this->zap->base . 'authorization/action/setBasicAuthorizationDetectionMethod/',
             $params
         );
     }

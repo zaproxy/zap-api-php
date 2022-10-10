@@ -6,18 +6,16 @@
  *
  * Copyright 2022 the ZAP development team
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
+
 
 namespace Zap;
 
@@ -26,201 +24,138 @@ namespace Zap;
  */
 class Context
 {
-    public function __construct(private Zap $zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
 
     /**
-     * List context names of current session.
+     * List context names of current session
      */
     public function contextList(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/contextList/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['contextList'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/contextList/', [
+            'apikey' => $apikey,
+        ])['contextList'] ?? null;
     }
 
     /**
-     * List excluded regexs for context.
-     *
-     * @param mixed $contextname
+     * List excluded regexs for context
      */
     public function excludeRegexs($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/excludeRegexs/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        )['excludeRegexs'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/excludeRegexs/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ])['excludeRegexs'] ?? null;
     }
 
     /**
-     * List included regexs for context.
-     *
-     * @param mixed $contextname
+     * List included regexs for context
      */
     public function includeRegexs($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/includeRegexs/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        )['includeRegexs'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/includeRegexs/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ])['includeRegexs'] ?? null;
     }
 
     /**
-     * List the information about the named context.
-     *
-     * @param mixed $contextname
+     * List the information about the named context
      */
     public function context($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/context/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        )['context'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/context/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ])['context'] ?? null;
     }
 
     /**
-     * Lists the names of all built in technologies.
+     * Lists the names of all built in technologies
      */
     public function technologyList(string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/technologyList/',
-            [
-                'apikey' => $apikey,
-            ]
-        )['technologyList'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/technologyList/', [
+            'apikey' => $apikey,
+        ])['technologyList'] ?? null;
     }
 
     /**
-     * Lists the names of all technologies included in a context.
-     *
-     * @param mixed $contextname
+     * Lists the names of all technologies included in a context
      */
     public function includedTechnologyList($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/includedTechnologyList/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        )['includedTechnologyList'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/includedTechnologyList/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ])['includedTechnologyList'] ?? null;
     }
 
     /**
-     * Lists the names of all technologies excluded from a context.
-     *
-     * @param mixed $contextname
+     * Lists the names of all technologies excluded from a context
      */
     public function excludedTechnologyList($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/excludedTechnologyList/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        )['excludedTechnologyList'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/excludedTechnologyList/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ])['excludedTechnologyList'] ?? null;
     }
 
     /**
      * Lists the URLs accessed through/by ZAP, that belong to the context with the given name.
-     *
-     * @param mixed $contextname
      */
     public function urls($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/view/urls/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        )['urls'] ?? null;
+        return $this->zap->request($this->zap->base . 'context/view/urls/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ])['urls'] ?? null;
     }
 
     /**
-     * Add exclude regex to context.
-     *
-     * @param mixed $contextname
-     * @param mixed $regex
+     * Add exclude regex to context
      */
-    public function excludeFromContext(
-        $contextname,
-        $regex,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'context/action/excludeFromContext/',
-            [
-                'contextName' => $contextname,
-                'regex' => $regex, 'apikey' => $apikey,
-            ]
-        );
+    public function excludeFromContext($contextname, $regex, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'context/action/excludeFromContext/', [
+            'contextName' => $contextname,
+            'regex' => $regex,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Add include regex to context.
-     *
-     * @param mixed $contextname
-     * @param mixed $regex
+     * Add include regex to context
      */
-    public function includeInContext(
-        $contextname,
-        $regex,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'context/action/includeInContext/',
-            [
-                'contextName' => $contextname,
-                'regex' => $regex, 'apikey' => $apikey,
-            ]
-        );
+    public function includeInContext($contextname, $regex, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'context/action/includeInContext/', [
+            'contextName' => $contextname,
+            'regex' => $regex,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Set the regexs to include and exclude for a context, both supplied as JSON string arrays.
-     *
-     * @param mixed $contextname
-     * @param mixed $incregexs
-     * @param mixed $excregexs
+     * Set the regexs to include and exclude for a context, both supplied as JSON string arrays
      */
-    public function setContextRegexs(
-        $contextname,
-        $incregexs,
-        $excregexs,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'context/action/setContextRegexs/',
-            [
-                'contextName' => $contextname,
-                'incRegexs' => $incregexs,
-                'excRegexs' => $excregexs, 'apikey' => $apikey,
-            ]
-        );
+    public function setContextRegexs($contextname, $incregexs, $excregexs, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'context/action/setContextRegexs/', [
+            'contextName' => $contextname,
+            'incRegexs' => $incregexs,
+            'excRegexs' => $excregexs,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Set the checking strategy for a context - this defines how ZAP checks that a request is
-     * authenticated.
-     *
-     * @param mixed      $contextname
-     * @param mixed      $checkingstrategy
-     * @param null|mixed $pollurl
-     * @param null|mixed $polldata
-     * @param null|mixed $pollheaders
-     * @param null|mixed $pollfrequency
-     * @param null|mixed $pollfrequencyunits
+     * Set the checking strategy for a context - this defines how ZAP checks that a request is authenticated
      */
     public function setContextCheckingStrategy(
         $contextname,
@@ -234,184 +169,129 @@ class Context
     ) {
         $params = [
             'contextName' => $contextname,
-            'checkingStrategy' => $checkingstrategy, 'apikey' => $apikey,
+            'checkingStrategy' => $checkingstrategy,
+            'apikey' => $apikey,
         ];
-        if (null !== $pollurl) {
+        if ($pollurl !== null) {
             $params['pollUrl'] = $pollurl;
         }
-        if (null !== $polldata) {
+        if ($polldata !== null) {
             $params['pollData'] = $polldata;
         }
-        if (null !== $pollheaders) {
+        if ($pollheaders !== null) {
             $params['pollHeaders'] = $pollheaders;
         }
-        if (null !== $pollfrequency) {
+        if ($pollfrequency !== null) {
             $params['pollFrequency'] = $pollfrequency;
         }
-        if (null !== $pollfrequencyunits) {
+        if ($pollfrequencyunits !== null) {
             $params['pollFrequencyUnits'] = $pollfrequencyunits;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'context/action/setContextCheckingStrategy/',
-            $params
-        );
+        return $this->zap->request($this->zap->base . 'context/action/setContextCheckingStrategy/', $params);
     }
 
     /**
-     * Creates a new context with the given name in the current session.
-     *
-     * @param mixed $contextname
+     * Creates a new context with the given name in the current session
      */
     public function newContext($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/action/newContext/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'context/action/newContext/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Removes a context in the current session.
-     *
-     * @param mixed $contextname
+     * Removes a context in the current session
      */
     public function removeContext($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/action/removeContext/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'context/action/removeContext/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Exports the context with the given name to a file. If a relative file path is specified it will be
-     * resolved against the "contexts" directory in ZAP "home" dir.
-     *
-     * @param mixed $contextname
-     * @param mixed $contextfile
+     * Exports the context with the given name to a file. If a relative file path is specified it will be resolved
+     * against the "contexts" directory in ZAP "home" dir.
      */
-    public function exportContext(
-        $contextname,
-        $contextfile,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'context/action/exportContext/',
-            [
-                'contextName' => $contextname,
-                'contextFile' => $contextfile, 'apikey' => $apikey,
-            ]
-        );
+    public function exportContext($contextname, $contextfile, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'context/action/exportContext/', [
+            'contextName' => $contextname,
+            'contextFile' => $contextfile,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Imports a context from a file. If a relative file path is specified it will be resolved against the
-     * "contexts" directory in ZAP "home" dir.
-     *
-     * @param mixed $contextfile
+     * Imports a context from a file. If a relative file path is specified it will be resolved against the "contexts"
+     * directory in ZAP "home" dir.
      */
     public function importContext($contextfile, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/action/importContext/',
-            [
-                'contextFile' => $contextfile, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'context/action/importContext/', [
+            'contextFile' => $contextfile,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Includes technologies with the given names, separated by a comma, to a context.
-     *
-     * @param mixed $contextname
-     * @param mixed $technologynames
+     * Includes technologies with the given names, separated by a comma, to a context
      */
-    public function includeContextTechnologies(
-        $contextname,
-        $technologynames,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'context/action/includeContextTechnologies/',
-            [
-                'contextName' => $contextname,
-                'technologyNames' => $technologynames, 'apikey' => $apikey,
-            ]
-        );
+    public function includeContextTechnologies($contextname, $technologynames, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'context/action/includeContextTechnologies/', [
+            'contextName' => $contextname,
+            'technologyNames' => $technologynames,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Includes all built in technologies in to a context.
-     *
-     * @param mixed $contextname
+     * Includes all built in technologies in to a context
      */
     public function includeAllContextTechnologies($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/action/includeAllContextTechnologies/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'context/action/includeAllContextTechnologies/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Excludes technologies with the given names, separated by a comma, from a context.
-     *
-     * @param mixed $contextname
-     * @param mixed $technologynames
+     * Excludes technologies with the given names, separated by a comma, from a context
      */
-    public function excludeContextTechnologies(
-        $contextname,
-        $technologynames,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'context/action/excludeContextTechnologies/',
-            [
-                'contextName' => $contextname,
-                'technologyNames' => $technologynames, 'apikey' => $apikey,
-            ]
-        );
+    public function excludeContextTechnologies($contextname, $technologynames, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'context/action/excludeContextTechnologies/', [
+            'contextName' => $contextname,
+            'technologyNames' => $technologynames,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Excludes all built in technologies from a context.
-     *
-     * @param mixed $contextname
+     * Excludes all built in technologies from a context
      */
     public function excludeAllContextTechnologies($contextname, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'context/action/excludeAllContextTechnologies/',
-            [
-                'contextName' => $contextname, 'apikey' => $apikey,
-            ]
-        );
+        return $this->zap->request($this->zap->base . 'context/action/excludeAllContextTechnologies/', [
+            'contextName' => $contextname,
+            'apikey' => $apikey,
+        ]);
     }
 
     /**
-     * Sets a context to in scope (contexts are in scope by default).
-     *
-     * @param mixed $contextname
-     * @param mixed $booleaninscope
+     * Sets a context to in scope (contexts are in scope by default)
      */
-    public function setContextInScope(
-        $contextname,
-        $booleaninscope,
-        string $apikey = ''
-    ) {
-        return $this->zap->request(
-            $this->zap->base.'context/action/setContextInScope/',
-            [
-                'contextName' => $contextname,
-                'booleanInScope' => $booleaninscope, 'apikey' => $apikey,
-            ]
-        );
+    public function setContextInScope($contextname, $booleaninscope, string $apikey = '')
+    {
+        return $this->zap->request($this->zap->base . 'context/action/setContextInScope/', [
+            'contextName' => $contextname,
+            'booleanInScope' => $booleaninscope,
+            'apikey' => $apikey,
+        ]);
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-/**
+/*
  * Zed Attack Proxy (ZAP) and its related class files.
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2021 the ZAP development team
+ * Copyright 2022 the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,8 +76,8 @@ class Zap
     /**
      * Creates an instance of the ZAP API client.
      *
-     * Note that all of the other classes in this directory are generated.
-     * New ones will need to be manually added to this file.
+     * Note that all of the other classes in this directory are generated. New ones will need to be manually added to
+     * this file.
      *
      * @param string $proxy  e.g. '127.0.0.1:8080'
      * @param bool   $useSSL use SSL to make API requests, requires $apiKey

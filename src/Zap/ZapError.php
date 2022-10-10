@@ -1,11 +1,11 @@
 <?php
 
-/**
+/*
  * Zed Attack Proxy (ZAP) and its related class files.
  *
  * ZAP is an HTTP/HTTPS proxy for assessing web application security.
  *
- * Copyright 2021 the ZAP development team
+ * Copyright 2022 the ZAP development team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,6 @@ class ZapError extends Exception
         $dbt = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $caller = isset($dbt[1]['class']) ? $dbt[1]['class'] : null;
 
-        return $caller.": [{$this->code}]: {$this->message}\n";
+        return $caller . ": [{$this->code}]: {$this->message}\n";
     }
 }

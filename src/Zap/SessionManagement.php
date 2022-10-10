@@ -6,18 +6,16 @@
  *
  * Copyright 2022 the ZAP development team
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
  */
+
 
 namespace Zap;
 
@@ -26,7 +24,9 @@ namespace Zap;
  */
 class SessionManagement
 {
-    public function __construct(private Zap $zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -37,7 +37,7 @@ class SessionManagement
     public function getSupportedSessionManagementMethods(string $apikey = '')
     {
         return $this->zap->request(
-            $this->zap->base.'sessionManagement/view/getSupportedSessionManagementMethods/',
+            $this->zap->base . 'sessionManagement/view/getSupportedSessionManagementMethods/',
             [
                 'apikey' => $apikey,
             ]
@@ -46,58 +46,42 @@ class SessionManagement
 
     /**
      * Gets the configuration parameters for the session management method with the given name.
-     *
-     * @param mixed $methodname
      */
     public function getSessionManagementMethodConfigParams($methodname, string $apikey = '')
     {
         return $this->zap->request(
-            $this->zap->base.'sessionManagement/view/getSessionManagementMethodConfigParams/',
+            $this->zap->base . 'sessionManagement/view/getSessionManagementMethodConfigParams/',
             [
-                'methodName' => $methodname, 'apikey' => $apikey,
+                'methodName' => $methodname,
+                'apikey' => $apikey,
             ]
         )['getSessionManagementMethodConfigParams'] ?? null;
     }
 
     /**
      * Gets the name of the session management method for the context with the given ID.
-     *
-     * @param mixed $contextid
      */
     public function getSessionManagementMethod($contextid, string $apikey = '')
     {
-        return $this->zap->request(
-            $this->zap->base.'sessionManagement/view/getSessionManagementMethod/',
-            [
-                'contextId' => $contextid, 'apikey' => $apikey,
-            ]
-        )['getSessionManagementMethod'] ?? null;
+        return $this->zap->request($this->zap->base . 'sessionManagement/view/getSessionManagementMethod/', [
+            'contextId' => $contextid,
+            'apikey' => $apikey,
+        ])['getSessionManagementMethod'] ?? null;
     }
 
     /**
      * Sets the session management method for the context with the given ID.
-     *
-     * @param mixed      $contextid
-     * @param mixed      $methodname
-     * @param null|mixed $methodconfigparams
      */
-    public function setSessionManagementMethod(
-        $contextid,
-        $methodname,
-        $methodconfigparams = null,
-        string $apikey = ''
-    ) {
+    public function setSessionManagementMethod($contextid, $methodname, $methodconfigparams = null, string $apikey = '')
+    {
         $params = [
             'contextId' => $contextid,
-            'methodName' => $methodname, 'apikey' => $apikey,
+            'methodName' => $methodname,
+            'apikey' => $apikey,
         ];
-        if (null !== $methodconfigparams) {
+        if ($methodconfigparams !== null) {
             $params['methodConfigParams'] = $methodconfigparams;
         }
-
-        return $this->zap->request(
-            $this->zap->base.'sessionManagement/action/setSessionManagementMethod/',
-            $params
-        );
+        return $this->zap->request($this->zap->base . 'sessionManagement/action/setSessionManagementMethod/', $params);
     }
 }
