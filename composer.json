@@ -24,6 +24,7 @@
         "fix-lint": "./vendor/bin/ecs check src --fix",
         "generate": [
             "cd ../zaproxy && ./gradlew generatePhpApiEndpoints",
+            "cd ../zap-extensions && ./gradlew generatePhpZapApiClientFiles --continue || true",
             "@fix-lint",
             "@fix-lint",
             "@lint"

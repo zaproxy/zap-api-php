@@ -24,54 +24,53 @@ namespace Zap;
 
 /**
  * Client API implementation for integrating with ZAP.
- *
- * @property string            $proxy
- * @property AccessControl     $accessControl
- * @property Acsrf             $acsrf
- * @property AjaxSpider        $ajaxSpider
- * @property Alert             $alert
- * @property AlertFilter       $alertFilter
- * @property Ascan             $ascan
- * @property Authentication    $authentication
- * @property Authorization     $authorization
- * @property Autoupdate        $autoupdate
- * @property Brk               $brk
- * @property Context           $context
- * @property Core              $core
- * @property ForcedUser        $forcedUser
- * @property Graphql           $graphql
- * @property HttpSessions      $httpSessions
- * @property ImportLogFiles    $importLogFiles
- * @property ImportUrls        $importUrls
- * @property LocalProxies      $localProxies
- * @property Openapi           $openapi
- * @property Params            $params
- * @property Pnh               $pnh
- * @property Pscan             $pscan
- * @property Replacer          $replacer
- * @property Reports           $reports
- * @property Reveal            $reveal
- * @property Revisit           $revisit
- * @property Ruleconfig        $ruleconfig
- * @property Script            $script
- * @property Search            $search
- * @property Selenium          $selenium
- * @property SessionManagement $sessionManagement
- * @property Soap              $soap
- * @property Spider            $spider
- * @property Stats             $stats
- * @property Users             $users
- * @property Wappalyzer        $wappalyzer
- * @property Websocket         $websocket
  */
 class Zap
 {
     // base JSON api url
-    public $base = 'http://zap/JSON/';
+    public string $base = 'http://zap/JSON/';
+
     // base OTHER api url
     public $base_other = 'http://zap/OTHER/';
 
+    // cURL handler
     private $ch;
+
+    public AccessControl $accessControl;
+    public Acsrf $acsrf;
+    public AjaxSpider $ajaxSpider;
+    public Alert $alert;
+    public AlertFilter $alertFilter;
+    public Ascan $ascan;
+    public Authentication $authentication;
+    public Authorization $authorization;
+    public Autoupdate $autoupdate;
+    public Brk $brk;
+    public Context $context;
+    public Core $core;
+    public ForcedUser $forcedUser;
+    public Graphql $graphql;
+    public HttpSessions $httpSessions;
+    public LocalProxies $localProxies;
+    public Openapi $openapi;
+    public Params $params;
+    public Pnh $pnh;
+    public Pscan $pscan;
+    public Replacer $replacer;
+    public Reports $reports;
+    public Reveal $reveal;
+    public Revisit $revisit;
+    public RuleConfig $ruleconfig;
+    public Script $script;
+    public Search $search;
+    public Selenium $selenium;
+    public SessionManagement $sessionManagement;
+    public Soap $soap;
+    public Spider $spider;
+    public Stats $stats;
+    public Users $users;
+    public Wappalyzer $wappalyzer;
+    public Websocket $websocket;
 
     /**
      * Creates an instance of the ZAP API client.
@@ -85,7 +84,7 @@ class Zap
      *
      * @throws ZapError
      */
-    public function __construct(string $proxy = '127.0.0.1:8080', bool $useSSL = false, $apikey = '')
+    public function __construct(string $proxy = '127.0.0.1:8080', bool $useSSL = false, string $apikey = '')
     {
         $this->proxy = $proxy;
 
@@ -104,8 +103,6 @@ class Zap
         $this->forcedUser = new ForcedUser($this);
         $this->graphql = new Graphql($this);
         $this->httpSessions = new HttpSessions($this);
-        $this->importLogFiles = new ImportLogFiles($this);
-        $this->importUrls = new Importurls($this);
         $this->localProxies = new LocalProxies($this);
         $this->openapi = new Openapi($this);
         $this->params = new Params($this);
