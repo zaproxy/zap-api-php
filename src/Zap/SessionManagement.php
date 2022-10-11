@@ -49,9 +49,9 @@ class SessionManagement
         return $this->zap->request(
             $this->zap->base . 'sessionManagement/view/getSessionManagementMethodConfigParams/',
             [
-            'methodName' => $methodname,
-            'apikey' => $apikey,
-        ]
+                'methodName' => $methodname,
+                'apikey' => $apikey,
+            ]
         )['getSessionManagementMethodConfigParams'] ?? null;
     }
 
