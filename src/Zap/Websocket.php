@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -39,20 +40,20 @@ class Websocket
     {
         return $this->zap->request($this->zap->base . 'websocket/view/channels/', [
             'apikey' => $apikey,
-        ])->{'channels'};
+        ])['channels'] ?? null;
     }
 
     /**
      * Returns full details of the message specified by the channelId and messageId This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function message($channelid, $messageid, $apikey = '')
+    public function message($channelid, $messageid, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'websocket/view/message/', [
             'channelId' => $channelid,
             'messageId' => $messageid,
             'apikey' => $apikey,
-        ])->{'message'};
+        ])['message'] ?? null;
     }
 
     /**
@@ -83,7 +84,7 @@ class Websocket
         if ($payloadpreviewlength !== null) {
             $params['payloadPreviewLength'] = $payloadpreviewlength;
         }
-        return $this->zap->request($this->zap->base . 'websocket/view/messages/', $params)->{'messages'};
+        return $this->zap->request($this->zap->base . 'websocket/view/messages/', $params)['messages'];
     }
 
     /**
@@ -94,7 +95,7 @@ class Websocket
     {
         return $this->zap->request($this->zap->base . 'websocket/view/breakTextMessage/', [
             'apikey' => $apikey,
-        ])->{'breakTextMessage'};
+        ])['breakTextMessage'] ?? null;
     }
 
     /**
@@ -102,7 +103,7 @@ class Websocket
      * sent to the server and if it is 'False' then it will be sent to the client This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function sendTextMessage($channelid, $outgoing, $message, $apikey = '')
+    public function sendTextMessage($channelid, $outgoing, $message, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'websocket/action/sendTextMessage/', [
             'channelId' => $channelid,
@@ -116,7 +117,7 @@ class Websocket
      * Sets the text message for an intercepted websockets message This component is optional and therefore the API will
      * only work if it is installed
      */
-    public function setBreakTextMessage($message, $outgoing, $apikey = '')
+    public function setBreakTextMessage($message, $outgoing, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'websocket/action/setBreakTextMessage/', [
             'message' => $message,

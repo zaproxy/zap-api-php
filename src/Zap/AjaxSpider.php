@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -40,7 +41,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/allowedResources/', [
             'apikey' => $apikey,
-        ])->{'allowedResources'};
+        ])['allowedResources'] ?? null;
     }
 
     /**
@@ -51,14 +52,14 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/status/', [
             'apikey' => $apikey,
-        ])->{'status'};
+        ])['status'] ?? null;
     }
 
     /**
      * Gets the current results of the crawler. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function results($start = null, $count = null, $apikey = '')
+    public function results($start = null, $count = null, string $apikey = '')
     {
         $params = [
             'apikey' => $apikey,
@@ -69,7 +70,7 @@ class AjaxSpider
         if ($count !== null) {
             $params['count'] = $count;
         }
-        return $this->zap->request($this->zap->base . 'ajaxSpider/view/results/', $params)->{'results'};
+        return $this->zap->request($this->zap->base . 'ajaxSpider/view/results/', $params)['results'] ?? null;
     }
 
     /**
@@ -80,7 +81,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/numberOfResults/', [
             'apikey' => $apikey,
-        ])->{'numberOfResults'};
+        ])['numberOfResults'] ?? null;
     }
 
     /**
@@ -92,7 +93,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/fullResults/', [
             'apikey' => $apikey,
-        ])->{'fullResults'};
+        ])['fullResults'] ?? null;
     }
 
     /**
@@ -103,7 +104,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionBrowserId/', [
             'apikey' => $apikey,
-        ])->{'BrowserId'};
+        ])['BrowserId'] ?? null;
     }
 
     /**
@@ -115,7 +116,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionEventWait/', [
             'apikey' => $apikey,
-        ])->{'EventWait'};
+        ])['EventWait'] ?? null;
     }
 
     /**
@@ -126,7 +127,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionMaxCrawlDepth/', [
             'apikey' => $apikey,
-        ])->{'MaxCrawlDepth'};
+        ])['MaxCrawlDepth'] ?? null;
     }
 
     /**
@@ -137,7 +138,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionMaxCrawlStates/', [
             'apikey' => $apikey,
-        ])->{'MaxCrawlStates'};
+        ])['MaxCrawlStates'] ?? null;
     }
 
     /**
@@ -148,7 +149,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionMaxDuration/', [
             'apikey' => $apikey,
-        ])->{'MaxDuration'};
+        ])['MaxDuration'] ?? null;
     }
 
     /**
@@ -159,7 +160,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionNumberOfBrowsers/', [
             'apikey' => $apikey,
-        ])->{'NumberOfBrowsers'};
+        ])['NumberOfBrowsers'] ?? null;
     }
 
     /**
@@ -170,7 +171,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionReloadWait/', [
             'apikey' => $apikey,
-        ])->{'ReloadWait'};
+        ])['ReloadWait'] ?? null;
     }
 
     /**
@@ -182,7 +183,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionClickDefaultElems/', [
             'apikey' => $apikey,
-        ])->{'ClickDefaultElems'};
+        ])['ClickDefaultElems'] ?? null;
     }
 
     /**
@@ -193,7 +194,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionClickElemsOnce/', [
             'apikey' => $apikey,
-        ])->{'ClickElemsOnce'};
+        ])['ClickElemsOnce'] ?? null;
     }
 
     /**
@@ -204,14 +205,14 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionRandomInputs/', [
             'apikey' => $apikey,
-        ])->{'RandomInputs'};
+        ])['RandomInputs'] ?? null;
     }
 
     /**
      * Runs the AJAX Spider against a given target. This component is optional and therefore the API will only work if
      * it is installed
      */
-    public function scan($url = null, $inscope = null, $contextname = null, $subtreeonly = null, $apikey = '')
+    public function scan($url = null, $inscope = null, $contextname = null, $subtreeonly = null, string $apikey = '')
     {
         $params = [
             'apikey' => $apikey,
@@ -235,7 +236,7 @@ class AjaxSpider
      * Runs the AJAX Spider from the perspective of a User of the web application. This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function scanAsUser($contextname, $username, $url = null, $subtreeonly = null, $apikey = '')
+    public function scanAsUser($contextname, $username, $url = null, $subtreeonly = null, string $apikey = '')
     {
         $params = [
             'contextName' => $contextname,
@@ -264,7 +265,7 @@ class AjaxSpider
     /**
      * Adds an allowed resource. This component is optional and therefore the API will only work if it is installed
      */
-    public function addAllowedResource($regex, $enabled = null, $apikey = '')
+    public function addAllowedResource($regex, $enabled = null, string $apikey = '')
     {
         $params = [
             'regex' => $regex,
@@ -279,7 +280,7 @@ class AjaxSpider
     /**
      * Removes an allowed resource. This component is optional and therefore the API will only work if it is installed
      */
-    public function removeAllowedResource($regex, $apikey = '')
+    public function removeAllowedResource($regex, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/removeAllowedResource/', [
             'regex' => $regex,
@@ -291,7 +292,7 @@ class AjaxSpider
      * Sets whether or not an allowed resource is enabled. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function setEnabledAllowedResource($regex, $enabled, $apikey = '')
+    public function setEnabledAllowedResource($regex, $enabled, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setEnabledAllowedResource/', [
             'regex' => $regex,
@@ -304,7 +305,7 @@ class AjaxSpider
      * Sets the configuration of the AJAX Spider to use one of the supported browsers. This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function setOptionBrowserId($string, $apikey = '')
+    public function setOptionBrowserId($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionBrowserId/', [
             'String' => $string,
@@ -316,7 +317,7 @@ class AjaxSpider
      * Sets whether or not the the AJAX Spider will only click on the default HTML elements. This component is optional
      * and therefore the API will only work if it is installed
      */
-    public function setOptionClickDefaultElems($boolean, $apikey = '')
+    public function setOptionClickDefaultElems($boolean, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionClickDefaultElems/', [
             'Boolean' => $boolean,
@@ -328,7 +329,7 @@ class AjaxSpider
      * When enabled, the crawler attempts to interact with each element (e.g., by clicking) only once. This component is
      * optional and therefore the API will only work if it is installed
      */
-    public function setOptionClickElemsOnce($boolean, $apikey = '')
+    public function setOptionClickElemsOnce($boolean, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionClickElemsOnce/', [
             'Boolean' => $boolean,
@@ -341,7 +342,7 @@ class AjaxSpider
      * an element, in order for a menu to display, etc. This component is optional and therefore the API will only work
      * if it is installed
      */
-    public function setOptionEventWait($integer, $apikey = '')
+    public function setOptionEventWait($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionEventWait/', [
             'Integer' => $integer,
@@ -353,7 +354,7 @@ class AjaxSpider
      * Sets the maximum depth that the crawler can reach. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function setOptionMaxCrawlDepth($integer, $apikey = '')
+    public function setOptionMaxCrawlDepth($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionMaxCrawlDepth/', [
             'Integer' => $integer,
@@ -365,7 +366,7 @@ class AjaxSpider
      * Sets the maximum number of states that the crawler should crawl. This component is optional and therefore the API
      * will only work if it is installed
      */
-    public function setOptionMaxCrawlStates($integer, $apikey = '')
+    public function setOptionMaxCrawlStates($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionMaxCrawlStates/', [
             'Integer' => $integer,
@@ -377,7 +378,7 @@ class AjaxSpider
      * The maximum time that the crawler is allowed to run. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function setOptionMaxDuration($integer, $apikey = '')
+    public function setOptionMaxDuration($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionMaxDuration/', [
             'Integer' => $integer,
@@ -389,7 +390,7 @@ class AjaxSpider
      * Sets the number of windows to be used by AJAX Spider. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function setOptionNumberOfBrowsers($integer, $apikey = '')
+    public function setOptionNumberOfBrowsers($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionNumberOfBrowsers/', [
             'Integer' => $integer,
@@ -401,7 +402,7 @@ class AjaxSpider
      * When enabled, inserts random values into form fields. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function setOptionRandomInputs($boolean, $apikey = '')
+    public function setOptionRandomInputs($boolean, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionRandomInputs/', [
             'Boolean' => $boolean,
@@ -413,7 +414,7 @@ class AjaxSpider
      * Sets the time to wait after the page is loaded before interacting with it. This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function setOptionReloadWait($integer, $apikey = '')
+    public function setOptionReloadWait($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/action/setOptionReloadWait/', [
             'Integer' => $integer,

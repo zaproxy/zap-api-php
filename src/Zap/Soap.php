@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -35,7 +36,7 @@ class Soap
      * Import a WSDL definition from local file. This component is optional and therefore the API will only work if it
      * is installed
      */
-    public function importFile($file, $apikey = '')
+    public function importFile($file, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'soap/action/importFile/', [
             'file' => $file,
@@ -47,7 +48,7 @@ class Soap
      * Import a WSDL definition from a URL. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function importUrl($url, $apikey = '')
+    public function importUrl($url, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'soap/action/importUrl/', [
             'url' => $url,

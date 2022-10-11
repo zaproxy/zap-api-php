@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -34,7 +35,7 @@ class Pnh
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function monitor($id, $message, $apikey = '')
+    public function monitor($id, $message, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'pnh/action/monitor/', [
             'id' => $id,
@@ -46,7 +47,7 @@ class Pnh
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function oracle($id, $apikey = '')
+    public function oracle($id, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'pnh/action/oracle/', [
             'id' => $id,
@@ -57,7 +58,7 @@ class Pnh
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function startMonitoring($url, $apikey = '')
+    public function startMonitoring($url, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'pnh/action/startMonitoring/', [
             'url' => $url,
@@ -68,7 +69,7 @@ class Pnh
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function stopMonitoring($id, $apikey = '')
+    public function stopMonitoring($id, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'pnh/action/stopMonitoring/', [
             'id' => $id,

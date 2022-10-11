@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -39,7 +40,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionArgsType/', [
             'apikey' => $apikey,
-        ])->{'ArgsType'};
+        ])['ArgsType'] ?? null;
     }
 
     /**
@@ -50,7 +51,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionLenientMaxQueryDepthEnabled/', [
             'apikey' => $apikey,
-        ])->{'LenientMaxQueryDepthEnabled'};
+        ])['LenientMaxQueryDepthEnabled'] ?? null;
     }
 
     /**
@@ -61,7 +62,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionMaxAdditionalQueryDepth/', [
             'apikey' => $apikey,
-        ])->{'MaxAdditionalQueryDepth'};
+        ])['MaxAdditionalQueryDepth'] ?? null;
     }
 
     /**
@@ -72,7 +73,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionMaxArgsDepth/', [
             'apikey' => $apikey,
-        ])->{'MaxArgsDepth'};
+        ])['MaxArgsDepth'] ?? null;
     }
 
     /**
@@ -83,7 +84,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionMaxQueryDepth/', [
             'apikey' => $apikey,
-        ])->{'MaxQueryDepth'};
+        ])['MaxQueryDepth'] ?? null;
     }
 
     /**
@@ -94,7 +95,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionOptionalArgsEnabled/', [
             'apikey' => $apikey,
-        ])->{'OptionalArgsEnabled'};
+        ])['OptionalArgsEnabled'] ?? null;
     }
 
     /**
@@ -105,7 +106,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionQuerySplitType/', [
             'apikey' => $apikey,
-        ])->{'QuerySplitType'};
+        ])['QuerySplitType'] ?? null;
     }
 
     /**
@@ -116,14 +117,14 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionRequestMethod/', [
             'apikey' => $apikey,
-        ])->{'RequestMethod'};
+        ])['RequestMethod'] ?? null;
     }
 
     /**
      * Imports a GraphQL Schema from a File. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function importFile($endurl, $file, $apikey = '')
+    public function importFile($endurl, $file, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/importFile/', [
             'endurl' => $endurl,
@@ -136,7 +137,7 @@ class Graphql
      * Imports a GraphQL Schema from a URL. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function importUrl($endurl, $url = null, $apikey = '')
+    public function importUrl($endurl, $url = null, string $apikey = '')
     {
         $params = [
             'endurl' => $endurl,
@@ -152,7 +153,7 @@ class Graphql
      * Sets how arguments are specified. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function setOptionArgsType($string, $apikey = '')
+    public function setOptionArgsType($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionArgsType/', [
             'String' => $string,
@@ -164,7 +165,7 @@ class Graphql
      * Sets the level for which a single query is generated. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function setOptionQuerySplitType($string, $apikey = '')
+    public function setOptionQuerySplitType($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionQuerySplitType/', [
             'String' => $string,
@@ -175,7 +176,7 @@ class Graphql
     /**
      * Sets the request method. This component is optional and therefore the API will only work if it is installed
      */
-    public function setOptionRequestMethod($string, $apikey = '')
+    public function setOptionRequestMethod($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionRequestMethod/', [
             'String' => $string,
@@ -187,7 +188,7 @@ class Graphql
      * Sets whether or not Maximum Query Depth is enforced leniently. This component is optional and therefore the API
      * will only work if it is installed
      */
-    public function setOptionLenientMaxQueryDepthEnabled($boolean, $apikey = '')
+    public function setOptionLenientMaxQueryDepthEnabled($boolean, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionLenientMaxQueryDepthEnabled/', [
             'Boolean' => $boolean,
@@ -199,7 +200,7 @@ class Graphql
      * Sets the maximum additional query generation depth (used if enforced leniently). This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function setOptionMaxAdditionalQueryDepth($integer, $apikey = '')
+    public function setOptionMaxAdditionalQueryDepth($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionMaxAdditionalQueryDepth/', [
             'Integer' => $integer,
@@ -211,7 +212,7 @@ class Graphql
      * Sets the maximum arguments generation depth. This component is optional and therefore the API will only work if
      * it is installed
      */
-    public function setOptionMaxArgsDepth($integer, $apikey = '')
+    public function setOptionMaxArgsDepth($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionMaxArgsDepth/', [
             'Integer' => $integer,
@@ -223,7 +224,7 @@ class Graphql
      * Sets the maximum query generation depth. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function setOptionMaxQueryDepth($integer, $apikey = '')
+    public function setOptionMaxQueryDepth($integer, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionMaxQueryDepth/', [
             'Integer' => $integer,
@@ -235,7 +236,7 @@ class Graphql
      * Sets whether or not Optional Arguments should be specified. This component is optional and therefore the API will
      * only work if it is installed
      */
-    public function setOptionOptionalArgsEnabled($boolean, $apikey = '')
+    public function setOptionOptionalArgsEnabled($boolean, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'graphql/action/setOptionOptionalArgsEnabled/', [
             'Boolean' => $boolean,

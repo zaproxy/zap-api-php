@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -38,7 +39,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionBrowserExtensions/', [
             'apikey' => $apikey,
-        ])->{'BrowserExtensions'};
+        ])['BrowserExtensions'] ?? null;
     }
 
     /**
@@ -49,7 +50,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionChromeBinaryPath/', [
             'apikey' => $apikey,
-        ])->{'ChromeBinaryPath'};
+        ])['ChromeBinaryPath'] ?? null;
     }
 
     /**
@@ -60,7 +61,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionChromeDriverPath/', [
             'apikey' => $apikey,
-        ])->{'ChromeDriverPath'};
+        ])['ChromeDriverPath'] ?? null;
     }
 
     /**
@@ -71,7 +72,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionFirefoxBinaryPath/', [
             'apikey' => $apikey,
-        ])->{'FirefoxBinaryPath'};
+        ])['FirefoxBinaryPath'] ?? null;
     }
 
     /**
@@ -82,7 +83,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionFirefoxDriverPath/', [
             'apikey' => $apikey,
-        ])->{'FirefoxDriverPath'};
+        ])['FirefoxDriverPath'] ?? null;
     }
 
     /**
@@ -92,7 +93,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionIeDriverPath/', [
             'apikey' => $apikey,
-        ])->{'IeDriverPath'};
+        ])['IeDriverPath'] ?? null;
     }
 
     /**
@@ -102,7 +103,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionLastDirectory/', [
             'apikey' => $apikey,
-        ])->{'LastDirectory'};
+        ])['LastDirectory'] ?? null;
     }
 
     /**
@@ -113,14 +114,14 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionPhantomJsBinaryPath/', [
             'apikey' => $apikey,
-        ])->{'PhantomJsBinaryPath'};
+        ])['PhantomJsBinaryPath'] ?? null;
     }
 
     /**
      * Sets the current path to Chrome binary This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function setOptionChromeBinaryPath($string, $apikey = '')
+    public function setOptionChromeBinaryPath($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'selenium/action/setOptionChromeBinaryPath/', [
             'String' => $string,
@@ -132,7 +133,7 @@ class Selenium
      * Sets the current path to ChromeDriver This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function setOptionChromeDriverPath($string, $apikey = '')
+    public function setOptionChromeDriverPath($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'selenium/action/setOptionChromeDriverPath/', [
             'String' => $string,
@@ -144,7 +145,7 @@ class Selenium
      * Sets the current path to Firefox binary This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function setOptionFirefoxBinaryPath($string, $apikey = '')
+    public function setOptionFirefoxBinaryPath($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'selenium/action/setOptionFirefoxBinaryPath/', [
             'String' => $string,
@@ -156,7 +157,7 @@ class Selenium
      * Sets the current path to Firefox driver (geckodriver) This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function setOptionFirefoxDriverPath($string, $apikey = '')
+    public function setOptionFirefoxDriverPath($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'selenium/action/setOptionFirefoxDriverPath/', [
             'String' => $string,
@@ -167,7 +168,7 @@ class Selenium
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function setOptionIeDriverPath($string, $apikey = '')
+    public function setOptionIeDriverPath($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'selenium/action/setOptionIeDriverPath/', [
             'String' => $string,
@@ -178,7 +179,7 @@ class Selenium
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function setOptionLastDirectory($string, $apikey = '')
+    public function setOptionLastDirectory($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'selenium/action/setOptionLastDirectory/', [
             'String' => $string,
@@ -190,7 +191,7 @@ class Selenium
      * Sets the current path to PhantomJS binary This component is optional and therefore the API will only work if it
      * is installed
      */
-    public function setOptionPhantomJsBinaryPath($string, $apikey = '')
+    public function setOptionPhantomJsBinaryPath($string, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'selenium/action/setOptionPhantomJsBinaryPath/', [
             'String' => $string,

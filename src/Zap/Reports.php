@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -38,19 +39,19 @@ class Reports
     {
         return $this->zap->request($this->zap->base . 'reports/view/templates/', [
             'apikey' => $apikey,
-        ])->{'templates'};
+        ])['templates'] ?? null;
     }
 
     /**
      * View details of the specified template. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function templateDetails($template, $apikey = '')
+    public function templateDetails($template, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'reports/view/templateDetails/', [
             'template' => $template,
             'apikey' => $apikey,
-        ])->{'templateDetails'};
+        ])['templateDetails'] ?? null;
     }
 
     /**

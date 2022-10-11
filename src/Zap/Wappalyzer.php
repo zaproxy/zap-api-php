@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -39,7 +40,7 @@ class Wappalyzer
     {
         return $this->zap->request($this->zap->base . 'wappalyzer/view/listSites/', [
             'apikey' => $apikey,
-        ])->{'listSites'};
+        ])['listSites'] ?? null;
     }
 
     /**
@@ -50,18 +51,18 @@ class Wappalyzer
     {
         return $this->zap->request($this->zap->base . 'wappalyzer/view/listAll/', [
             'apikey' => $apikey,
-        ])->{'listAll'};
+        ])['listAll'] ?? null;
     }
 
     /**
      * Lists all the applications (technologies) associated with a specific site. This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function listSite($site, $apikey = '')
+    public function listSite($site, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'wappalyzer/view/listSite/', [
             'site' => $site,
             'apikey' => $apikey,
-        ])->{'listSite'};
+        ])['listSite'] ?? null;
     }
 }

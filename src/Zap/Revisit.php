@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -38,13 +39,13 @@ class Revisit
     {
         return $this->zap->request($this->zap->base . 'revisit/view/revisitList/', [
             'apikey' => $apikey,
-        ])->{'revisitList'};
+        ])['revisitList'] ?? null;
     }
 
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function revisitSiteOn($site, $starttime, $endtime, $apikey = '')
+    public function revisitSiteOn($site, $starttime, $endtime, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'revisit/action/revisitSiteOn/', [
             'site' => $site,
@@ -57,7 +58,7 @@ class Revisit
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function revisitSiteOff($site, $apikey = '')
+    public function revisitSiteOff($site, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'revisit/action/revisitSiteOff/', [
             'site' => $site,

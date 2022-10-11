@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -35,7 +36,7 @@ class Openapi
      * Imports an OpenAPI definition from a local file. This component is optional and therefore the API will only work
      * if it is installed
      */
-    public function importFile($file, $target = null, $contextid = null, $apikey = '')
+    public function importFile($file, $target = null, $contextid = null, string $apikey = '')
     {
         $params = [
             'file' => $file,
@@ -54,7 +55,7 @@ class Openapi
      * Imports an OpenAPI definition from a URL. This component is optional and therefore the API will only work if it
      * is installed
      */
-    public function importUrl($url, $hostoverride = null, $contextid = null, $apikey = '')
+    public function importUrl($url, $hostoverride = null, $contextid = null, string $apikey = '')
     {
         $params = [
             'url' => $url,

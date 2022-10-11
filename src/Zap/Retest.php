@@ -21,12 +21,12 @@ namespace Zap;
 
 /**
  * This file was automatically generated.
- *
- * @property Zap $zap
  */
 class Retest
 {
-    public function __construct($zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -34,7 +34,7 @@ class Retest
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function retest($alertids, $apikey = '')
+    public function retest($alertids, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'retest/action/retest/', [
             'alertIds' => $alertids,

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -39,14 +40,14 @@ class Reveal
     {
         return $this->zap->request($this->zap->base . 'reveal/view/reveal/', [
             'apikey' => $apikey,
-        ])->{'reveal'};
+        ])['reveal'] ?? null;
     }
 
     /**
      * Sets if shows hidden fields and enables disabled fields This component is optional and therefore the API will
      * only work if it is installed
      */
-    public function setReveal($reveal, $apikey = '')
+    public function setReveal($reveal, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'reveal/action/setReveal/', [
             'reveal' => $reveal,

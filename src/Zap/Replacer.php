@@ -21,12 +21,12 @@ namespace Zap;
 
 /**
  * This file was automatically generated.
- *
- * @property Zap $zap
  */
 class Replacer
 {
-    public function __construct($zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -35,11 +35,11 @@ class Replacer
      * Returns full details of all of the rules This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function rules($apikey = '')
+    public function rules(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'replacer/view/rules/', [
             'apikey' => $apikey,
-        ])->{'rules'};
+        ])['rules'] ?? null;
     }
 
     /**
@@ -59,7 +59,7 @@ class Replacer
         $matchstring,
         $replacement = null,
         $initiators = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'description' => $description,
@@ -82,7 +82,7 @@ class Replacer
      * Removes the rule with the given description This component is optional and therefore the API will only work if it
      * is installed
      */
-    public function removeRule($description, $apikey = '')
+    public function removeRule($description, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'replacer/action/removeRule/', [
             'description' => $description,
@@ -94,7 +94,7 @@ class Replacer
      * Enables or disables the rule with the given description based on the bool parameter This component is optional
      * and therefore the API will only work if it is installed
      */
-    public function setEnabled($description, $bool, $apikey = '')
+    public function setEnabled($description, $bool, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'replacer/action/setEnabled/', [
             'description' => $description,
