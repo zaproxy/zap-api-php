@@ -16,6 +16,7 @@
         "ext-curl": "*"
     },
     "require-dev": {
+        "phpstan/phpstan": "^0.12.85",
         "symplify/coding-standard": "^11.1",
         "symplify/easy-coding-standard": "^11.1"
     },
@@ -28,6 +29,7 @@
             "@fix-lint",
             "@fix-lint",
             "@lint"
-        ]
+        ],
+        "static-check": "./vendor/bin/phpstan analyse -l 2 src"
     }
 }

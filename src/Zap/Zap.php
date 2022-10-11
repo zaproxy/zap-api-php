@@ -36,6 +36,8 @@ class Zap
     // cURL handler
     private $ch;
 
+    private string $proxy;
+
     public AccessControl $accessControl;
     public Acsrf $acsrf;
     public AjaxSpider $ajaxSpider;
@@ -207,12 +209,9 @@ class Zap
     /**
      * Initialise cURL.
      *
-     * @param mixed $useSsl
-     * @param mixed $apikey
-     *
      * @throws ZapError
      */
-    private function initialiseCurl($useSsl, string $apikey)
+    private function initialiseCurl(bool $useSsl, string $apikey)
     {
         $this->ch = curl_init();
         curl_setopt($this->ch, CURLOPT_PROXY, $this->proxy);
