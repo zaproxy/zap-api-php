@@ -21,12 +21,12 @@ namespace Zap;
 
 /**
  * This file was automatically generated.
- *
- * @property Zap $zap
  */
 class AlertFilter
 {
-    public function __construct($zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -35,23 +35,23 @@ class AlertFilter
      * Lists the alert filters of the context with the given ID. This component is optional and therefore the API will
      * only work if it is installed
      */
-    public function alertFilterList($contextid, $apikey = '')
+    public function alertFilterList($contextid, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/view/alertFilterList/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])->{'alertFilterList'};
+        ])['alertFilterList'] ?? null;
     }
 
     /**
      * Lists the global alert filters. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function globalAlertFilterList($apikey = '')
+    public function globalAlertFilterList(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/view/globalAlertFilterList/', [
             'apikey' => $apikey,
-        ])->{'globalAlertFilterList'};
+        ])['globalAlertFilterList'] ?? null;
     }
 
     /**
@@ -71,7 +71,7 @@ class AlertFilter
         $attackisregex = null,
         $evidence = null,
         $evidenceisregex = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'contextId' => $contextid,
@@ -126,7 +126,7 @@ class AlertFilter
         $attackisregex = null,
         $evidence = null,
         $evidenceisregex = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'contextId' => $contextid,
@@ -180,7 +180,7 @@ class AlertFilter
         $attackisregex = null,
         $evidence = null,
         $evidenceisregex = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'ruleId' => $ruleid,
@@ -232,7 +232,7 @@ class AlertFilter
         $attackisregex = null,
         $evidence = null,
         $evidenceisregex = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'ruleId' => $ruleid,
@@ -273,7 +273,7 @@ class AlertFilter
      * Applies all currently enabled Global and Context alert filters. This component is optional and therefore the API
      * will only work if it is installed
      */
-    public function applyAll($apikey = '')
+    public function applyAll(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/action/applyAll/', [
             'apikey' => $apikey,
@@ -284,7 +284,7 @@ class AlertFilter
      * Applies all currently enabled Context alert filters. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function applyContext($apikey = '')
+    public function applyContext(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/action/applyContext/', [
             'apikey' => $apikey,
@@ -295,7 +295,7 @@ class AlertFilter
      * Applies all currently enabled Global alert filters. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function applyGlobal($apikey = '')
+    public function applyGlobal(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/action/applyGlobal/', [
             'apikey' => $apikey,
@@ -306,7 +306,7 @@ class AlertFilter
      * Tests all currently enabled Global and Context alert filters. This component is optional and therefore the API
      * will only work if it is installed
      */
-    public function testAll($apikey = '')
+    public function testAll(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/action/testAll/', [
             'apikey' => $apikey,
@@ -317,7 +317,7 @@ class AlertFilter
      * Tests all currently enabled Context alert filters. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function testContext($apikey = '')
+    public function testContext(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/action/testContext/', [
             'apikey' => $apikey,
@@ -328,7 +328,7 @@ class AlertFilter
      * Tests all currently enabled Global alert filters. This component is optional and therefore the API will only work
      * if it is installed
      */
-    public function testGlobal($apikey = '')
+    public function testGlobal(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'alertFilter/action/testGlobal/', [
             'apikey' => $apikey,

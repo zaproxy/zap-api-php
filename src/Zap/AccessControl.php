@@ -21,12 +21,12 @@ namespace Zap;
 
 /**
  * This file was automatically generated.
- *
- * @property Zap $zap
  */
 class AccessControl
 {
-    public function __construct($zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -35,24 +35,24 @@ class AccessControl
      * Gets the Access Control scan progress (percentage integer) for the given context ID. This component is optional
      * and therefore the API will only work if it is installed
      */
-    public function getScanProgress($contextid, $apikey = '')
+    public function getScanProgress($contextid, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'accessControl/view/getScanProgress/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])->{'getScanProgress'};
+        ])['getScanProgress'] ?? null;
     }
 
     /**
      * Gets the Access Control scan status (description string) for the given context ID. This component is optional and
      * therefore the API will only work if it is installed
      */
-    public function getScanStatus($contextid, $apikey = '')
+    public function getScanStatus($contextid, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'accessControl/view/getScanStatus/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])->{'getScanStatus'};
+        ])['getScanStatus'] ?? null;
     }
 
     /**
@@ -67,7 +67,7 @@ class AccessControl
         $scanasunauthuser = null,
         $raisealert = null,
         $alertrisklevel = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'contextId' => $contextid,
@@ -90,7 +90,7 @@ class AccessControl
      * Generates an Access Control report for the given context ID and saves it based on the provided filename (path).
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function writeHTMLreport($contextid, $filename, $apikey = '')
+    public function writeHTMLreport($contextid, $filename, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'accessControl/action/writeHTMLreport/', [
             'contextId' => $contextid,

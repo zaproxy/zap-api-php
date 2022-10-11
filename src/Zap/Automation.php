@@ -21,12 +21,12 @@ namespace Zap;
 
 /**
  * This file was automatically generated.
- *
- * @property Zap $zap
  */
 class Automation
 {
-    public function __construct($zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -34,18 +34,18 @@ class Automation
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function planProgress($planid, $apikey = '')
+    public function planProgress($planid, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'automation/view/planProgress/', [
             'planId' => $planid,
             'apikey' => $apikey,
-        ])->{'planProgress'};
+        ])['planProgress'] ?? null;
     }
 
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function runPlan($filepath, $apikey = '')
+    public function runPlan($filepath, string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'automation/action/runPlan/', [
             'filePath' => $filepath,
@@ -56,7 +56,7 @@ class Automation
     /**
      * This component is optional and therefore the API will only work if it is installed
      */
-    public function endDelayJob($apikey = '')
+    public function endDelayJob(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'automation/action/endDelayJob/', [
             'apikey' => $apikey,
