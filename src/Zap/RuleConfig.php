@@ -39,7 +39,7 @@ class RuleConfig
         return $this->zap->request($this->zap->base . 'ruleConfig/view/ruleConfigValue/', [
             'key' => $key,
             'apikey' => $apikey,
-        ])['ruleConfigValue'] ?? null;
+        ])->ruleConfigValue ?? null;
     }
 
     /**
@@ -49,7 +49,7 @@ class RuleConfig
     {
         return $this->zap->request($this->zap->base . 'ruleConfig/view/allRuleConfigs/', [
             'apikey' => $apikey,
-        ])['allRuleConfigs'] ?? null;
+        ])->allRuleConfigs ?? null;
     }
 
     /**

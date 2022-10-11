@@ -155,11 +155,9 @@ class Zap
     /**
      * Opens a URL.
      *
-     * @param string $url
-     *
      * @return bool|string
      */
-    public function sendRequest($url)
+    public function sendRequest(string $url)
     {
         curl_setopt($this->ch, CURLOPT_URL, $url);
 
@@ -168,12 +166,8 @@ class Zap
 
     /**
      * Checks URL status.
-     *
-     * @param string $url
-     *
-     * @return mixed
      */
-    public function statusCode($url)
+    public function statusCode(string $url): int
     {
         curl_setopt($this->ch, CURLOPT_HEADER, true);
         curl_setopt($this->ch, CURLOPT_URL, $url);
@@ -189,19 +183,19 @@ class Zap
      * @param string $url the url to GET at
      * @param array  $get the dictionary to turn into GET variables
      */
-    public function request($url, array $get = []): array
+    public function request(string $url, array $get = []): object
     {
         $response = $this->sendRequest($url . '?' . http_build_query($get));
         $response = trim($response, '()');
 
-        return json_decode($response, true);
+        return json_decode($response);
     }
 
     /**
      * @param string $url       the url to GET at
      * @param array  $getParams the dictionary to turn into GET variables
      */
-    public function requestOther($url, $getParams = [])
+    public function requestOther(string $url, array $getParams = [])
     {
         return $this->sendRequest($url . '?' . http_build_query($getParams));
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -39,7 +40,7 @@ class Automation
         return $this->zap->request($this->zap->base . 'automation/view/planProgress/', [
             'planId' => $planid,
             'apikey' => $apikey,
-        ])['planProgress'] ?? null;
+        ])->planProgress ?? null;
     }
 
     /**

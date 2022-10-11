@@ -39,7 +39,7 @@ class Revisit
     {
         return $this->zap->request($this->zap->base . 'revisit/view/revisitList/', [
             'apikey' => $apikey,
-        ])['revisitList'] ?? null;
+        ])->revisitList ?? null;
     }
 
     /**

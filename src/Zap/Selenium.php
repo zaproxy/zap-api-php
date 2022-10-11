@@ -39,7 +39,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionBrowserExtensions/', [
             'apikey' => $apikey,
-        ])['BrowserExtensions'] ?? null;
+        ])->BrowserExtensions ?? null;
     }
 
     /**
@@ -50,7 +50,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionChromeBinaryPath/', [
             'apikey' => $apikey,
-        ])['ChromeBinaryPath'] ?? null;
+        ])->ChromeBinaryPath ?? null;
     }
 
     /**
@@ -61,7 +61,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionChromeDriverPath/', [
             'apikey' => $apikey,
-        ])['ChromeDriverPath'] ?? null;
+        ])->ChromeDriverPath ?? null;
     }
 
     /**
@@ -72,7 +72,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionFirefoxBinaryPath/', [
             'apikey' => $apikey,
-        ])['FirefoxBinaryPath'] ?? null;
+        ])->FirefoxBinaryPath ?? null;
     }
 
     /**
@@ -83,7 +83,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionFirefoxDriverPath/', [
             'apikey' => $apikey,
-        ])['FirefoxDriverPath'] ?? null;
+        ])->FirefoxDriverPath ?? null;
     }
 
     /**
@@ -93,7 +93,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionIeDriverPath/', [
             'apikey' => $apikey,
-        ])['IeDriverPath'] ?? null;
+        ])->IeDriverPath ?? null;
     }
 
     /**
@@ -103,7 +103,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionLastDirectory/', [
             'apikey' => $apikey,
-        ])['LastDirectory'] ?? null;
+        ])->LastDirectory ?? null;
     }
 
     /**
@@ -114,7 +114,7 @@ class Selenium
     {
         return $this->zap->request($this->zap->base . 'selenium/view/optionPhantomJsBinaryPath/', [
             'apikey' => $apikey,
-        ])['PhantomJsBinaryPath'] ?? null;
+        ])->PhantomJsBinaryPath ?? null;
     }
 
     /**

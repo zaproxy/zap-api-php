@@ -38,7 +38,7 @@ class Brk
     {
         return $this->zap->request($this->zap->base . 'break/view/isBreakAll/', [
             'apikey' => $apikey,
-        ])['isBreakAll'] ?? null;
+        ])->isBreakAll ?? null;
     }
 
     /**
@@ -48,7 +48,7 @@ class Brk
     {
         return $this->zap->request($this->zap->base . 'break/view/isBreakRequest/', [
             'apikey' => $apikey,
-        ])['isBreakRequest'] ?? null;
+        ])->isBreakRequest ?? null;
     }
 
     /**
@@ -58,7 +58,7 @@ class Brk
     {
         return $this->zap->request($this->zap->base . 'break/view/isBreakResponse/', [
             'apikey' => $apikey,
-        ])['isBreakResponse'] ?? null;
+        ])->isBreakResponse ?? null;
     }
 
     /**
@@ -68,7 +68,7 @@ class Brk
     {
         return $this->zap->request($this->zap->base . 'break/view/httpMessage/', [
             'apikey' => $apikey,
-        ])['httpMessage'] ?? null;
+        ])->httpMessage ?? null;
     }
 
     /**

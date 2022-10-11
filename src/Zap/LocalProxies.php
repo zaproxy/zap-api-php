@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -38,7 +39,7 @@ class LocalProxies
     {
         return $this->zap->request($this->zap->base . 'localProxies/view/additionalProxies/', [
             'apikey' => $apikey,
-        ])['additionalProxies'] ?? null;
+        ])->additionalProxies ?? null;
     }
 
     /**

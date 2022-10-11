@@ -38,7 +38,7 @@ class Context
     {
         return $this->zap->request($this->zap->base . 'context/view/contextList/', [
             'apikey' => $apikey,
-        ])['contextList'] ?? null;
+        ])->contextList ?? null;
     }
 
     /**
@@ -49,7 +49,7 @@ class Context
         return $this->zap->request($this->zap->base . 'context/view/excludeRegexs/', [
             'contextName' => $contextname,
             'apikey' => $apikey,
-        ])['excludeRegexs'] ?? null;
+        ])->excludeRegexs ?? null;
     }
 
     /**
@@ -60,7 +60,7 @@ class Context
         return $this->zap->request($this->zap->base . 'context/view/includeRegexs/', [
             'contextName' => $contextname,
             'apikey' => $apikey,
-        ])['includeRegexs'] ?? null;
+        ])->includeRegexs ?? null;
     }
 
     /**
@@ -71,7 +71,7 @@ class Context
         return $this->zap->request($this->zap->base . 'context/view/context/', [
             'contextName' => $contextname,
             'apikey' => $apikey,
-        ])['context'] ?? null;
+        ])->context ?? null;
     }
 
     /**
@@ -81,7 +81,7 @@ class Context
     {
         return $this->zap->request($this->zap->base . 'context/view/technologyList/', [
             'apikey' => $apikey,
-        ])['technologyList'] ?? null;
+        ])->technologyList ?? null;
     }
 
     /**
@@ -92,7 +92,7 @@ class Context
         return $this->zap->request($this->zap->base . 'context/view/includedTechnologyList/', [
             'contextName' => $contextname,
             'apikey' => $apikey,
-        ])['includedTechnologyList'] ?? null;
+        ])->includedTechnologyList ?? null;
     }
 
     /**
@@ -103,7 +103,7 @@ class Context
         return $this->zap->request($this->zap->base . 'context/view/excludedTechnologyList/', [
             'contextName' => $contextname,
             'apikey' => $apikey,
-        ])['excludedTechnologyList'] ?? null;
+        ])->excludedTechnologyList ?? null;
     }
 
     /**
@@ -114,7 +114,7 @@ class Context
         return $this->zap->request($this->zap->base . 'context/view/urls/', [
             'contextName' => $contextname,
             'apikey' => $apikey,
-        ])['urls'] ?? null;
+        ])->urls ?? null;
     }
 
     /**

@@ -42,7 +42,7 @@ class Users
         if ($contextid !== null) {
             $params['contextId'] = $contextid;
         }
-        return $this->zap->request($this->zap->base . 'users/view/usersList/', $params)['usersList'] ?? null;
+        return $this->zap->request($this->zap->base . 'users/view/usersList/', $params)->usersList ?? null;
     }
 
     /**
@@ -54,7 +54,7 @@ class Users
             'contextId' => $contextid,
             'userId' => $userid,
             'apikey' => $apikey,
-        ])['getUserById'] ?? null;
+        ])->getUserById ?? null;
     }
 
     /**
@@ -65,7 +65,7 @@ class Users
         return $this->zap->request($this->zap->base . 'users/view/getAuthenticationCredentialsConfigParams/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getAuthenticationCredentialsConfigParams'] ?? null;
+        ])->getAuthenticationCredentialsConfigParams ?? null;
     }
 
     /**
@@ -77,7 +77,7 @@ class Users
             'contextId' => $contextid,
             'userId' => $userid,
             'apikey' => $apikey,
-        ])['getAuthenticationCredentials'] ?? null;
+        ])->getAuthenticationCredentials ?? null;
     }
 
     /**
@@ -89,7 +89,7 @@ class Users
             'contextId' => $contextid,
             'userId' => $userid,
             'apikey' => $apikey,
-        ])['getAuthenticationState'] ?? null;
+        ])->getAuthenticationState ?? null;
     }
 
     /**
@@ -102,7 +102,7 @@ class Users
             'contextId' => $contextid,
             'userId' => $userid,
             'apikey' => $apikey,
-        ])['getAuthenticationSession'] ?? null;
+        ])->getAuthenticationSession ?? null;
     }
 
     /**

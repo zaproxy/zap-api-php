@@ -42,6 +42,6 @@ class Params
         if ($site !== null) {
             $params['site'] = $site;
         }
-        return $this->zap->request($this->zap->base . 'params/view/params/', $params)['params'] ?? null;
+        return $this->zap->request($this->zap->base . 'params/view/params/', $params)->params ?? null;
     }
 }

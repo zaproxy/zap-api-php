@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -39,7 +40,7 @@ class Spider
         if ($scanid !== null) {
             $params['scanId'] = $scanid;
         }
-        return $this->zap->request($this->zap->base . 'spider/view/status/', $params)['status'] ?? null;
+        return $this->zap->request($this->zap->base . 'spider/view/status/', $params)->status ?? null;
     }
 
     public function results($scanid = null, string $apikey = '')
@@ -50,7 +51,7 @@ class Spider
         if ($scanid !== null) {
             $params['scanId'] = $scanid;
         }
-        return $this->zap->request($this->zap->base . 'spider/view/results/', $params)['results'] ?? null;
+        return $this->zap->request($this->zap->base . 'spider/view/results/', $params)->results ?? null;
     }
 
     public function fullResults($scanid, string $apikey = '')
@@ -58,14 +59,14 @@ class Spider
         return $this->zap->request($this->zap->base . 'spider/view/fullResults/', [
             'scanId' => $scanid,
             'apikey' => $apikey,
-        ])['fullResults'] ?? null;
+        ])->fullResults ?? null;
     }
 
     public function scans(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/scans/', [
             'apikey' => $apikey,
-        ])['scans'] ?? null;
+        ])->scans ?? null;
     }
 
     /**
@@ -75,7 +76,7 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/excludedFromScan/', [
             'apikey' => $apikey,
-        ])['excludedFromScan'] ?? null;
+        ])->excludedFromScan ?? null;
     }
 
     /**
@@ -85,7 +86,7 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/allUrls/', [
             'apikey' => $apikey,
-        ])['allUrls'] ?? null;
+        ])->allUrls ?? null;
     }
 
     /**
@@ -99,7 +100,7 @@ class Spider
         if ($scanid !== null) {
             $params['scanId'] = $scanid;
         }
-        return $this->zap->request($this->zap->base . 'spider/view/addedNodes/', $params)['addedNodes'] ?? null;
+        return $this->zap->request($this->zap->base . 'spider/view/addedNodes/', $params)->addedNodes ?? null;
     }
 
     /**
@@ -110,7 +111,7 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/domainsAlwaysInScope/', [
             'apikey' => $apikey,
-        ])['domainsAlwaysInScope'] ?? null;
+        ])->domainsAlwaysInScope ?? null;
     }
 
     /**
@@ -120,7 +121,7 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionDomainsAlwaysInScope/', [
             'apikey' => $apikey,
-        ])['DomainsAlwaysInScope'] ?? null;
+        ])->DomainsAlwaysInScope ?? null;
     }
 
     /**
@@ -130,14 +131,14 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionDomainsAlwaysInScopeEnabled/', [
             'apikey' => $apikey,
-        ])['DomainsAlwaysInScopeEnabled'] ?? null;
+        ])->DomainsAlwaysInScopeEnabled ?? null;
     }
 
     public function optionHandleParameters(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionHandleParameters/', [
             'apikey' => $apikey,
-        ])['HandleParameters'] ?? null;
+        ])->HandleParameters ?? null;
     }
 
     /**
@@ -147,7 +148,7 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionMaxChildren/', [
             'apikey' => $apikey,
-        ])['MaxChildren'] ?? null;
+        ])->MaxChildren ?? null;
     }
 
     /**
@@ -157,14 +158,14 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionMaxDepth/', [
             'apikey' => $apikey,
-        ])['MaxDepth'] ?? null;
+        ])->MaxDepth ?? null;
     }
 
     public function optionMaxDuration(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionMaxDuration/', [
             'apikey' => $apikey,
-        ])['MaxDuration'] ?? null;
+        ])->MaxDuration ?? null;
     }
 
     /**
@@ -174,56 +175,56 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionMaxParseSizeBytes/', [
             'apikey' => $apikey,
-        ])['MaxParseSizeBytes'] ?? null;
+        ])->MaxParseSizeBytes ?? null;
     }
 
     public function optionMaxScansInUI(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionMaxScansInUI/', [
             'apikey' => $apikey,
-        ])['MaxScansInUI'] ?? null;
+        ])->MaxScansInUI ?? null;
     }
 
     public function optionRequestWaitTime(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionRequestWaitTime/', [
             'apikey' => $apikey,
-        ])['RequestWaitTime'] ?? null;
+        ])->RequestWaitTime ?? null;
     }
 
     public function optionScope(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionScope/', [
             'apikey' => $apikey,
-        ])['Scope'] ?? null;
+        ])->Scope ?? null;
     }
 
     public function optionScopeText(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionScopeText/', [
             'apikey' => $apikey,
-        ])['ScopeText'] ?? null;
+        ])->ScopeText ?? null;
     }
 
     public function optionSkipURLString(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionSkipURLString/', [
             'apikey' => $apikey,
-        ])['SkipURLString'] ?? null;
+        ])->SkipURLString ?? null;
     }
 
     public function optionThreadCount(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionThreadCount/', [
             'apikey' => $apikey,
-        ])['ThreadCount'] ?? null;
+        ])->ThreadCount ?? null;
     }
 
     public function optionUserAgent(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionUserAgent/', [
             'apikey' => $apikey,
-        ])['UserAgent'] ?? null;
+        ])->UserAgent ?? null;
     }
 
     /**
@@ -233,63 +234,63 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionAcceptCookies/', [
             'apikey' => $apikey,
-        ])['AcceptCookies'] ?? null;
+        ])->AcceptCookies ?? null;
     }
 
     public function optionHandleODataParametersVisited(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionHandleODataParametersVisited/', [
             'apikey' => $apikey,
-        ])['HandleODataParametersVisited'] ?? null;
+        ])->HandleODataParametersVisited ?? null;
     }
 
     public function optionParseComments(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionParseComments/', [
             'apikey' => $apikey,
-        ])['ParseComments'] ?? null;
+        ])->ParseComments ?? null;
     }
 
     public function optionParseGit(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionParseGit/', [
             'apikey' => $apikey,
-        ])['ParseGit'] ?? null;
+        ])->ParseGit ?? null;
     }
 
     public function optionParseRobotsTxt(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionParseRobotsTxt/', [
             'apikey' => $apikey,
-        ])['ParseRobotsTxt'] ?? null;
+        ])->ParseRobotsTxt ?? null;
     }
 
     public function optionParseSVNEntries(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionParseSVNEntries/', [
             'apikey' => $apikey,
-        ])['ParseSVNEntries'] ?? null;
+        ])->ParseSVNEntries ?? null;
     }
 
     public function optionParseSitemapXml(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionParseSitemapXml/', [
             'apikey' => $apikey,
-        ])['ParseSitemapXml'] ?? null;
+        ])->ParseSitemapXml ?? null;
     }
 
     public function optionPostForm(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionPostForm/', [
             'apikey' => $apikey,
-        ])['PostForm'] ?? null;
+        ])->PostForm ?? null;
     }
 
     public function optionProcessForm(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionProcessForm/', [
             'apikey' => $apikey,
-        ])['ProcessForm'] ?? null;
+        ])->ProcessForm ?? null;
     }
 
     /**
@@ -299,14 +300,14 @@ class Spider
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionSendRefererHeader/', [
             'apikey' => $apikey,
-        ])['SendRefererHeader'] ?? null;
+        ])->SendRefererHeader ?? null;
     }
 
     public function optionShowAdvancedDialog(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'spider/view/optionShowAdvancedDialog/', [
             'apikey' => $apikey,
-        ])['ShowAdvancedDialog'] ?? null;
+        ])->ShowAdvancedDialog ?? null;
     }
 
     /**

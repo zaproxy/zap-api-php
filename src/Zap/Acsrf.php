@@ -38,7 +38,7 @@ class Acsrf
     {
         return $this->zap->request($this->zap->base . 'acsrf/view/optionTokensNames/', [
             'apikey' => $apikey,
-        ])['TokensNames'] ?? null;
+        ])->TokensNames ?? null;
     }
 
     /**
@@ -48,7 +48,7 @@ class Acsrf
     {
         return $this->zap->request($this->zap->base . 'acsrf/view/optionPartialMatchingEnabled/', [
             'apikey' => $apikey,
-        ])['PartialMatchingEnabled'] ?? null;
+        ])->PartialMatchingEnabled ?? null;
     }
 
     /**

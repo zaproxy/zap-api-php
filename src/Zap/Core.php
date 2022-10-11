@@ -38,7 +38,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/hosts/', [
             'apikey' => $apikey,
-        ])['hosts'] ?? null;
+        ])->hosts ?? null;
     }
 
     /**
@@ -48,7 +48,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/sites/', [
             'apikey' => $apikey,
-        ])['sites'] ?? null;
+        ])->sites ?? null;
     }
 
     /**
@@ -62,7 +62,7 @@ class Core
         if ($baseurl !== null) {
             $params['baseurl'] = $baseurl;
         }
-        return $this->zap->request($this->zap->base . 'core/view/urls/', $params)['urls'] ?? null;
+        return $this->zap->request($this->zap->base . 'core/view/urls/', $params)->urls ?? null;
     }
 
     /**
@@ -76,7 +76,7 @@ class Core
         if ($url !== null) {
             $params['url'] = $url;
         }
-        return $this->zap->request($this->zap->base . 'core/view/childNodes/', $params)['childNodes'] ?? null;
+        return $this->zap->request($this->zap->base . 'core/view/childNodes/', $params)->childNodes ?? null;
     }
 
     /**
@@ -88,7 +88,7 @@ class Core
         return $this->zap->request($this->zap->base . 'core/view/message/', [
             'id' => $id,
             'apikey' => $apikey,
-        ])['message'] ?? null;
+        ])->message ?? null;
     }
 
     /**
@@ -109,7 +109,7 @@ class Core
         if ($count !== null) {
             $params['count'] = $count;
         }
-        return $this->zap->request($this->zap->base . 'core/view/messages/', $params)['messages'] ?? null;
+        return $this->zap->request($this->zap->base . 'core/view/messages/', $params)->messages ?? null;
     }
 
     /**
@@ -120,7 +120,7 @@ class Core
         return $this->zap->request($this->zap->base . 'core/view/messagesById/', [
             'ids' => $ids,
             'apikey' => $apikey,
-        ])['messagesById'] ?? null;
+        ])->messagesById ?? null;
     }
 
     /**
@@ -134,10 +134,7 @@ class Core
         if ($baseurl !== null) {
             $params['baseurl'] = $baseurl;
         }
-        return $this->zap->request(
-            $this->zap->base . 'core/view/numberOfMessages/',
-            $params
-        )['numberOfMessages'] ?? null;
+        return $this->zap->request($this->zap->base . 'core/view/numberOfMessages/', $params)->numberOfMessages ?? null;
     }
 
     /**
@@ -147,7 +144,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/mode/', [
             'apikey' => $apikey,
-        ])['mode'] ?? null;
+        ])->mode ?? null;
     }
 
     /**
@@ -157,7 +154,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/version/', [
             'apikey' => $apikey,
-        ])['version'] ?? null;
+        ])->version ?? null;
     }
 
     /**
@@ -167,7 +164,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/excludedFromProxy/', [
             'apikey' => $apikey,
-        ])['excludedFromProxy'] ?? null;
+        ])->excludedFromProxy ?? null;
     }
 
     /**
@@ -177,7 +174,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/sessionLocation/', [
             'apikey' => $apikey,
-        ])['sessionLocation'] ?? null;
+        ])->sessionLocation ?? null;
     }
 
     /**
@@ -188,7 +185,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/proxyChainExcludedDomains/', [
             'apikey' => $apikey,
-        ])['proxyChainExcludedDomains'] ?? null;
+        ])->proxyChainExcludedDomains ?? null;
     }
 
     /**
@@ -198,7 +195,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/zapHomePath/', [
             'apikey' => $apikey,
-        ])['zapHomePath'] ?? null;
+        ])->zapHomePath ?? null;
     }
 
     /**
@@ -208,7 +205,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionMaximumAlertInstances/', [
             'apikey' => $apikey,
-        ])['MaximumAlertInstances'] ?? null;
+        ])->MaximumAlertInstances ?? null;
     }
 
     /**
@@ -218,7 +215,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionMergeRelatedAlerts/', [
             'apikey' => $apikey,
-        ])['MergeRelatedAlerts'] ?? null;
+        ])->MergeRelatedAlerts ?? null;
     }
 
     /**
@@ -228,14 +225,14 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionAlertOverridesFilePath/', [
             'apikey' => $apikey,
-        ])['AlertOverridesFilePath'] ?? null;
+        ])->AlertOverridesFilePath ?? null;
     }
 
     public function homeDirectory(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/homeDirectory/', [
             'apikey' => $apikey,
-        ])['homeDirectory'] ?? null;
+        ])->homeDirectory ?? null;
     }
 
     /**
@@ -245,7 +242,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyChainSkipName/', [
             'apikey' => $apikey,
-        ])['ProxyChainSkipName'] ?? null;
+        ])->ProxyChainSkipName ?? null;
     }
 
     /**
@@ -255,7 +252,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyExcludedDomains/', [
             'apikey' => $apikey,
-        ])['ProxyExcludedDomains'] ?? null;
+        ])->ProxyExcludedDomains ?? null;
     }
 
     /**
@@ -265,7 +262,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyExcludedDomainsEnabled/', [
             'apikey' => $apikey,
-        ])['ProxyExcludedDomainsEnabled'] ?? null;
+        ])->ProxyExcludedDomainsEnabled ?? null;
     }
 
     /**
@@ -277,7 +274,7 @@ class Core
         return $this->zap->request($this->zap->base . 'core/view/alert/', [
             'id' => $id,
             'apikey' => $apikey,
-        ])['alert'] ?? null;
+        ])->alert ?? null;
     }
 
     /**
@@ -301,7 +298,7 @@ class Core
         if ($riskid !== null) {
             $params['riskId'] = $riskid;
         }
-        return $this->zap->request($this->zap->base . 'core/view/alerts/', $params)['alerts'] ?? null;
+        return $this->zap->request($this->zap->base . 'core/view/alerts/', $params)->alerts ?? null;
     }
 
     /**
@@ -315,7 +312,7 @@ class Core
         if ($baseurl !== null) {
             $params['baseurl'] = $baseurl;
         }
-        return $this->zap->request($this->zap->base . 'core/view/alertsSummary/', $params)['alertsSummary'] ?? null;
+        return $this->zap->request($this->zap->base . 'core/view/alertsSummary/', $params)->alertsSummary ?? null;
     }
 
     /**
@@ -332,7 +329,7 @@ class Core
         if ($riskid !== null) {
             $params['riskId'] = $riskid;
         }
-        return $this->zap->request($this->zap->base . 'core/view/numberOfAlerts/', $params)['numberOfAlerts'] ?? null;
+        return $this->zap->request($this->zap->base . 'core/view/numberOfAlerts/', $params)->numberOfAlerts ?? null;
     }
 
     /**
@@ -343,7 +340,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionDefaultUserAgent/', [
             'apikey' => $apikey,
-        ])['DefaultUserAgent'] ?? null;
+        ])->DefaultUserAgent ?? null;
     }
 
     /**
@@ -353,70 +350,70 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionDnsTtlSuccessfulQueries/', [
             'apikey' => $apikey,
-        ])['DnsTtlSuccessfulQueries'] ?? null;
+        ])->DnsTtlSuccessfulQueries ?? null;
     }
 
     public function optionHttpState(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionHttpState/', [
             'apikey' => $apikey,
-        ])['HttpState'] ?? null;
+        ])->HttpState ?? null;
     }
 
     public function optionHttpStateEnabled(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionHttpStateEnabled/', [
             'apikey' => $apikey,
-        ])['HttpStateEnabled'] ?? null;
+        ])->HttpStateEnabled ?? null;
     }
 
     public function optionProxyChainName(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyChainName/', [
             'apikey' => $apikey,
-        ])['ProxyChainName'] ?? null;
+        ])->ProxyChainName ?? null;
     }
 
     public function optionProxyChainPassword(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyChainPassword/', [
             'apikey' => $apikey,
-        ])['ProxyChainPassword'] ?? null;
+        ])->ProxyChainPassword ?? null;
     }
 
     public function optionProxyChainPort(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyChainPort/', [
             'apikey' => $apikey,
-        ])['ProxyChainPort'] ?? null;
+        ])->ProxyChainPort ?? null;
     }
 
     public function optionProxyChainPrompt(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyChainPrompt/', [
             'apikey' => $apikey,
-        ])['ProxyChainPrompt'] ?? null;
+        ])->ProxyChainPrompt ?? null;
     }
 
     public function optionProxyChainRealm(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyChainRealm/', [
             'apikey' => $apikey,
-        ])['ProxyChainRealm'] ?? null;
+        ])->ProxyChainRealm ?? null;
     }
 
     public function optionProxyChainUserName(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionProxyChainUserName/', [
             'apikey' => $apikey,
-        ])['ProxyChainUserName'] ?? null;
+        ])->ProxyChainUserName ?? null;
     }
 
     public function optionSingleCookieRequestHeader(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionSingleCookieRequestHeader/', [
             'apikey' => $apikey,
-        ])['SingleCookieRequestHeader'] ?? null;
+        ])->SingleCookieRequestHeader ?? null;
     }
 
     /**
@@ -426,21 +423,21 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionTimeoutInSecs/', [
             'apikey' => $apikey,
-        ])['TimeoutInSecs'] ?? null;
+        ])->TimeoutInSecs ?? null;
     }
 
     public function optionUseProxyChain(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionUseProxyChain/', [
             'apikey' => $apikey,
-        ])['UseProxyChain'] ?? null;
+        ])->UseProxyChain ?? null;
     }
 
     public function optionUseProxyChainAuth(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'core/view/optionUseProxyChainAuth/', [
             'apikey' => $apikey,
-        ])['UseProxyChainAuth'] ?? null;
+        ])->UseProxyChainAuth ?? null;
     }
 
     /**
@@ -450,7 +447,7 @@ class Core
     {
         return $this->zap->request($this->zap->base . 'core/view/optionUseSocksProxy/', [
             'apikey' => $apikey,
-        ])['UseSocksProxy'] ?? null;
+        ])->UseSocksProxy ?? null;
     }
 
     /**

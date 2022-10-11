@@ -40,7 +40,7 @@ class Websocket
     {
         return $this->zap->request($this->zap->base . 'websocket/view/channels/', [
             'apikey' => $apikey,
-        ])['channels'] ?? null;
+        ])->channels ?? null;
     }
 
     /**
@@ -53,7 +53,7 @@ class Websocket
             'channelId' => $channelid,
             'messageId' => $messageid,
             'apikey' => $apikey,
-        ])['message'] ?? null;
+        ])->message ?? null;
     }
 
     /**
@@ -84,7 +84,7 @@ class Websocket
         if ($payloadpreviewlength !== null) {
             $params['payloadPreviewLength'] = $payloadpreviewlength;
         }
-        return $this->zap->request($this->zap->base . 'websocket/view/messages/', $params)['messages'];
+        return $this->zap->request($this->zap->base . 'websocket/view/messages/', $params)->messages;
     }
 
     /**
@@ -95,7 +95,7 @@ class Websocket
     {
         return $this->zap->request($this->zap->base . 'websocket/view/breakTextMessage/', [
             'apikey' => $apikey,
-        ])['breakTextMessage'] ?? null;
+        ])->breakTextMessage ?? null;
     }
 
     /**

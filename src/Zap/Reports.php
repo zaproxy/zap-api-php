@@ -39,7 +39,7 @@ class Reports
     {
         return $this->zap->request($this->zap->base . 'reports/view/templates/', [
             'apikey' => $apikey,
-        ])['templates'] ?? null;
+        ])->templates ?? null;
     }
 
     /**
@@ -51,7 +51,7 @@ class Reports
         return $this->zap->request($this->zap->base . 'reports/view/templateDetails/', [
             'template' => $template,
             'apikey' => $apikey,
-        ])['templateDetails'] ?? null;
+        ])->templateDetails ?? null;
     }
 
     /**

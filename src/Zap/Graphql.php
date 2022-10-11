@@ -40,7 +40,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionArgsType/', [
             'apikey' => $apikey,
-        ])['ArgsType'] ?? null;
+        ])->ArgsType ?? null;
     }
 
     /**
@@ -51,7 +51,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionLenientMaxQueryDepthEnabled/', [
             'apikey' => $apikey,
-        ])['LenientMaxQueryDepthEnabled'] ?? null;
+        ])->LenientMaxQueryDepthEnabled ?? null;
     }
 
     /**
@@ -62,7 +62,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionMaxAdditionalQueryDepth/', [
             'apikey' => $apikey,
-        ])['MaxAdditionalQueryDepth'] ?? null;
+        ])->MaxAdditionalQueryDepth ?? null;
     }
 
     /**
@@ -73,7 +73,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionMaxArgsDepth/', [
             'apikey' => $apikey,
-        ])['MaxArgsDepth'] ?? null;
+        ])->MaxArgsDepth ?? null;
     }
 
     /**
@@ -84,7 +84,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionMaxQueryDepth/', [
             'apikey' => $apikey,
-        ])['MaxQueryDepth'] ?? null;
+        ])->MaxQueryDepth ?? null;
     }
 
     /**
@@ -95,7 +95,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionOptionalArgsEnabled/', [
             'apikey' => $apikey,
-        ])['OptionalArgsEnabled'] ?? null;
+        ])->OptionalArgsEnabled ?? null;
     }
 
     /**
@@ -106,7 +106,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionQuerySplitType/', [
             'apikey' => $apikey,
-        ])['QuerySplitType'] ?? null;
+        ])->QuerySplitType ?? null;
     }
 
     /**
@@ -117,7 +117,7 @@ class Graphql
     {
         return $this->zap->request($this->zap->base . 'graphql/view/optionRequestMethod/', [
             'apikey' => $apikey,
-        ])['RequestMethod'] ?? null;
+        ])->RequestMethod ?? null;
     }
 
     /**

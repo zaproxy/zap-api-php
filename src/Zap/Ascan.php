@@ -39,7 +39,7 @@ class Ascan
         if ($scanid !== null) {
             $params['scanId'] = $scanid;
         }
-        return $this->zap->request($this->zap->base . 'ascan/view/status/', $params)['status'] ?? null;
+        return $this->zap->request($this->zap->base . 'ascan/view/status/', $params)->status ?? null;
     }
 
     public function scanProgress($scanid = null, string $apikey = '')
@@ -50,7 +50,7 @@ class Ascan
         if ($scanid !== null) {
             $params['scanId'] = $scanid;
         }
-        return $this->zap->request($this->zap->base . 'ascan/view/scanProgress/', $params)['scanProgress'] ?? null;
+        return $this->zap->request($this->zap->base . 'ascan/view/scanProgress/', $params)->scanProgress ?? null;
     }
 
     /**
@@ -62,7 +62,7 @@ class Ascan
         return $this->zap->request($this->zap->base . 'ascan/view/messagesIds/', [
             'scanId' => $scanid,
             'apikey' => $apikey,
-        ])['messagesIds'] ?? null;
+        ])->messagesIds ?? null;
     }
 
     /**
@@ -74,21 +74,21 @@ class Ascan
         return $this->zap->request($this->zap->base . 'ascan/view/alertsIds/', [
             'scanId' => $scanid,
             'apikey' => $apikey,
-        ])['alertsIds'] ?? null;
+        ])->alertsIds ?? null;
     }
 
     public function scans(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/scans/', [
             'apikey' => $apikey,
-        ])['scans'] ?? null;
+        ])->scans ?? null;
     }
 
     public function scanPolicyNames(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/scanPolicyNames/', [
             'apikey' => $apikey,
-        ])['scanPolicyNames'] ?? null;
+        ])->scanPolicyNames ?? null;
     }
 
     /**
@@ -98,7 +98,7 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/excludedFromScan/', [
             'apikey' => $apikey,
-        ])['excludedFromScan'] ?? null;
+        ])->excludedFromScan ?? null;
     }
 
     /**
@@ -115,7 +115,7 @@ class Ascan
         if ($policyid !== null) {
             $params['policyId'] = $policyid;
         }
-        return $this->zap->request($this->zap->base . 'ascan/view/scanners/', $params)['scanners'] ?? null;
+        return $this->zap->request($this->zap->base . 'ascan/view/scanners/', $params)->scanners ?? null;
     }
 
     public function policies($scanpolicyname = null, $policyid = null, string $apikey = '')
@@ -129,14 +129,14 @@ class Ascan
         if ($policyid !== null) {
             $params['policyId'] = $policyid;
         }
-        return $this->zap->request($this->zap->base . 'ascan/view/policies/', $params)['policies'] ?? null;
+        return $this->zap->request($this->zap->base . 'ascan/view/policies/', $params)->policies ?? null;
     }
 
     public function attackModeQueue(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/attackModeQueue/', [
             'apikey' => $apikey,
-        ])['attackModeQueue'] ?? null;
+        ])->attackModeQueue ?? null;
     }
 
     /**
@@ -147,7 +147,7 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/excludedParams/', [
             'apikey' => $apikey,
-        ])['excludedParams'] ?? null;
+        ])->excludedParams ?? null;
     }
 
     /**
@@ -157,7 +157,7 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionExcludedParamList/', [
             'apikey' => $apikey,
-        ])['ExcludedParamList'] ?? null;
+        ])->ExcludedParamList ?? null;
     }
 
     /**
@@ -167,98 +167,98 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/excludedParamTypes/', [
             'apikey' => $apikey,
-        ])['excludedParamTypes'] ?? null;
+        ])->excludedParamTypes ?? null;
     }
 
     public function optionAttackPolicy(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionAttackPolicy/', [
             'apikey' => $apikey,
-        ])['AttackPolicy'] ?? null;
+        ])->AttackPolicy ?? null;
     }
 
     public function optionDefaultPolicy(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionDefaultPolicy/', [
             'apikey' => $apikey,
-        ])['DefaultPolicy'] ?? null;
+        ])->DefaultPolicy ?? null;
     }
 
     public function optionDelayInMs(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionDelayInMs/', [
             'apikey' => $apikey,
-        ])['DelayInMs'] ?? null;
+        ])->DelayInMs ?? null;
     }
 
     public function optionHandleAntiCSRFTokens(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionHandleAntiCSRFTokens/', [
             'apikey' => $apikey,
-        ])['HandleAntiCSRFTokens'] ?? null;
+        ])->HandleAntiCSRFTokens ?? null;
     }
 
     public function optionHostPerScan(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionHostPerScan/', [
             'apikey' => $apikey,
-        ])['HostPerScan'] ?? null;
+        ])->HostPerScan ?? null;
     }
 
     public function optionMaxChartTimeInMins(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionMaxChartTimeInMins/', [
             'apikey' => $apikey,
-        ])['MaxChartTimeInMins'] ?? null;
+        ])->MaxChartTimeInMins ?? null;
     }
 
     public function optionMaxResultsToList(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionMaxResultsToList/', [
             'apikey' => $apikey,
-        ])['MaxResultsToList'] ?? null;
+        ])->MaxResultsToList ?? null;
     }
 
     public function optionMaxRuleDurationInMins(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionMaxRuleDurationInMins/', [
             'apikey' => $apikey,
-        ])['MaxRuleDurationInMins'] ?? null;
+        ])->MaxRuleDurationInMins ?? null;
     }
 
     public function optionMaxScanDurationInMins(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionMaxScanDurationInMins/', [
             'apikey' => $apikey,
-        ])['MaxScanDurationInMins'] ?? null;
+        ])->MaxScanDurationInMins ?? null;
     }
 
     public function optionMaxScansInUI(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionMaxScansInUI/', [
             'apikey' => $apikey,
-        ])['MaxScansInUI'] ?? null;
+        ])->MaxScansInUI ?? null;
     }
 
     public function optionTargetParamsEnabledRPC(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionTargetParamsEnabledRPC/', [
             'apikey' => $apikey,
-        ])['TargetParamsEnabledRPC'] ?? null;
+        ])->TargetParamsEnabledRPC ?? null;
     }
 
     public function optionTargetParamsInjectable(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionTargetParamsInjectable/', [
             'apikey' => $apikey,
-        ])['TargetParamsInjectable'] ?? null;
+        ])->TargetParamsInjectable ?? null;
     }
 
     public function optionThreadPerHost(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionThreadPerHost/', [
             'apikey' => $apikey,
-        ])['ThreadPerHost'] ?? null;
+        ])->ThreadPerHost ?? null;
     }
 
     /**
@@ -269,14 +269,14 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionAddQueryParam/', [
             'apikey' => $apikey,
-        ])['AddQueryParam'] ?? null;
+        ])->AddQueryParam ?? null;
     }
 
     public function optionAllowAttackOnStart(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionAllowAttackOnStart/', [
             'apikey' => $apikey,
-        ])['AllowAttackOnStart'] ?? null;
+        ])->AllowAttackOnStart ?? null;
     }
 
     /**
@@ -287,28 +287,28 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionInjectPluginIdInHeader/', [
             'apikey' => $apikey,
-        ])['InjectPluginIdInHeader'] ?? null;
+        ])->InjectPluginIdInHeader ?? null;
     }
 
     public function optionPromptInAttackMode(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionPromptInAttackMode/', [
             'apikey' => $apikey,
-        ])['PromptInAttackMode'] ?? null;
+        ])->PromptInAttackMode ?? null;
     }
 
     public function optionPromptToClearFinishedScans(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionPromptToClearFinishedScans/', [
             'apikey' => $apikey,
-        ])['PromptToClearFinishedScans'] ?? null;
+        ])->PromptToClearFinishedScans ?? null;
     }
 
     public function optionRescanInAttackMode(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionRescanInAttackMode/', [
             'apikey' => $apikey,
-        ])['RescanInAttackMode'] ?? null;
+        ])->RescanInAttackMode ?? null;
     }
 
     /**
@@ -319,7 +319,7 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionScanHeadersAllRequests/', [
             'apikey' => $apikey,
-        ])['ScanHeadersAllRequests'] ?? null;
+        ])->ScanHeadersAllRequests ?? null;
     }
 
     /**
@@ -329,14 +329,14 @@ class Ascan
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionScanNullJsonValues/', [
             'apikey' => $apikey,
-        ])['ScanNullJsonValues'] ?? null;
+        ])->ScanNullJsonValues ?? null;
     }
 
     public function optionShowAdvancedDialog(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'ascan/view/optionShowAdvancedDialog/', [
             'apikey' => $apikey,
-        ])['ShowAdvancedDialog'] ?? null;
+        ])->ShowAdvancedDialog ?? null;
     }
 
     /**

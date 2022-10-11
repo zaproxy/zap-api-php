@@ -38,7 +38,7 @@ class HttpSessions
     {
         return $this->zap->request($this->zap->base . 'httpSessions/view/sites/', [
             'apikey' => $apikey,
-        ])['sites'] ?? null;
+        ])->sites ?? null;
     }
 
     /**
@@ -53,7 +53,7 @@ class HttpSessions
         if ($session !== null) {
             $params['session'] = $session;
         }
-        return $this->zap->request($this->zap->base . 'httpSessions/view/sessions/', $params)['sessions'] ?? null;
+        return $this->zap->request($this->zap->base . 'httpSessions/view/sessions/', $params)->sessions ?? null;
     }
 
     /**
@@ -64,7 +64,7 @@ class HttpSessions
         return $this->zap->request($this->zap->base . 'httpSessions/view/activeSession/', [
             'site' => $site,
             'apikey' => $apikey,
-        ])['activeSession'] ?? null;
+        ])->activeSession ?? null;
     }
 
     /**
@@ -75,7 +75,7 @@ class HttpSessions
         return $this->zap->request($this->zap->base . 'httpSessions/view/sessionTokens/', [
             'site' => $site,
             'apikey' => $apikey,
-        ])['sessionTokens'] ?? null;
+        ])->sessionTokens ?? null;
     }
 
     /**
@@ -85,7 +85,7 @@ class HttpSessions
     {
         return $this->zap->request($this->zap->base . 'httpSessions/view/defaultSessionTokens/', [
             'apikey' => $apikey,
-        ])['defaultSessionTokens'] ?? null;
+        ])->defaultSessionTokens ?? null;
     }
 
     /**

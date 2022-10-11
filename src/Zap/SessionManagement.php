@@ -38,7 +38,7 @@ class SessionManagement
     {
         return $this->zap->request($this->zap->base . 'sessionManagement/view/getSupportedSessionManagementMethods/', [
             'apikey' => $apikey,
-        ])['getSupportedSessionManagementMethods'] ?? null;
+        ])->getSupportedSessionManagementMethods ?? null;
     }
 
     /**
@@ -52,7 +52,7 @@ class SessionManagement
                 'methodName' => $methodname,
                 'apikey' => $apikey,
             ]
-        )['getSessionManagementMethodConfigParams'] ?? null;
+        )->getSessionManagementMethodConfigParams ?? null;
     }
 
     /**
@@ -63,7 +63,7 @@ class SessionManagement
         return $this->zap->request($this->zap->base . 'sessionManagement/view/getSessionManagementMethod/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getSessionManagementMethod'] ?? null;
+        ])->getSessionManagementMethod ?? null;
     }
 
     /**

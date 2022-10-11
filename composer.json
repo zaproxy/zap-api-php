@@ -25,9 +25,9 @@
         "fix-lint": "./vendor/bin/ecs check src --fix",
         "generate": [
             "cd ../zaproxy && ./gradlew generatePhpApiEndpoints",
-            "cd ../zap-extensions && ./gradlew generatePhpZapApiClientFiles --continue || true",
-            "@fix-lint",
-            "@fix-lint",
+            "cd ../zap-extensions && ZAP_RELEASE=1 ZAP_JAVA_VERSION=11 ./gradlew --include-build ../zaproxy :aO:network:generatePhpZapApiClientFiles --continue || true",
+            "@fix-lint -- -q",
+            "@fix-lint -- -q",
             "@lint"
         ],
         "static-check": "./vendor/bin/phpstan analyse -l 2 src"

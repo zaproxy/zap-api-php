@@ -42,7 +42,7 @@ class Stats
         if ($keyprefix !== null) {
             $params['keyPrefix'] = $keyprefix;
         }
-        return $this->zap->request($this->zap->base . 'stats/view/stats/', $params)['stats'] ?? null;
+        return $this->zap->request($this->zap->base . 'stats/view/stats/', $params)->stats ?? null;
     }
 
     /**
@@ -56,7 +56,7 @@ class Stats
         if ($keyprefix !== null) {
             $params['keyPrefix'] = $keyprefix;
         }
-        return $this->zap->request($this->zap->base . 'stats/view/allSitesStats/', $params)['allSitesStats'] ?? null;
+        return $this->zap->request($this->zap->base . 'stats/view/allSitesStats/', $params)->allSitesStats ?? null;
     }
 
     /**
@@ -71,7 +71,7 @@ class Stats
         if ($keyprefix !== null) {
             $params['keyPrefix'] = $keyprefix;
         }
-        return $this->zap->request($this->zap->base . 'stats/view/siteStats/', $params)['siteStats'] ?? null;
+        return $this->zap->request($this->zap->base . 'stats/view/siteStats/', $params)->siteStats ?? null;
     }
 
     /**
@@ -81,7 +81,7 @@ class Stats
     {
         return $this->zap->request($this->zap->base . 'stats/view/optionStatsdHost/', [
             'apikey' => $apikey,
-        ])['StatsdHost'] ?? null;
+        ])->StatsdHost ?? null;
     }
 
     /**
@@ -91,7 +91,7 @@ class Stats
     {
         return $this->zap->request($this->zap->base . 'stats/view/optionStatsdPort/', [
             'apikey' => $apikey,
-        ])['StatsdPort'] ?? null;
+        ])->StatsdPort ?? null;
     }
 
     /**
@@ -101,7 +101,7 @@ class Stats
     {
         return $this->zap->request($this->zap->base . 'stats/view/optionStatsdPrefix/', [
             'apikey' => $apikey,
-        ])['StatsdPrefix'] ?? null;
+        ])->StatsdPrefix ?? null;
     }
 
     /**
@@ -111,7 +111,7 @@ class Stats
     {
         return $this->zap->request($this->zap->base . 'stats/view/optionInMemoryEnabled/', [
             'apikey' => $apikey,
-        ])['InMemoryEnabled'] ?? null;
+        ])->InMemoryEnabled ?? null;
     }
 
     /**
@@ -121,7 +121,7 @@ class Stats
     {
         return $this->zap->request($this->zap->base . 'stats/view/optionStatsdEnabled/', [
             'apikey' => $apikey,
-        ])['StatsdEnabled'] ?? null;
+        ])->StatsdEnabled ?? null;
     }
 
     /**

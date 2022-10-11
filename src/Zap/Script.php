@@ -38,7 +38,7 @@ class Script
     {
         return $this->zap->request($this->zap->base . 'script/view/listEngines/', [
             'apikey' => $apikey,
-        ])['listEngines'] ?? null;
+        ])->listEngines ?? null;
     }
 
     /**
@@ -48,7 +48,7 @@ class Script
     {
         return $this->zap->request($this->zap->base . 'script/view/listTypes/', [
             'apikey' => $apikey,
-        ])['listTypes'] ?? null;
+        ])->listTypes ?? null;
     }
 
     /**
@@ -58,7 +58,7 @@ class Script
     {
         return $this->zap->request($this->zap->base . 'script/view/listScripts/', [
             'apikey' => $apikey,
-        ])['listScripts'] ?? null;
+        ])->listScripts ?? null;
     }
 
     /**
@@ -70,7 +70,7 @@ class Script
         return $this->zap->request($this->zap->base . 'script/view/globalVar/', [
             'varKey' => $varkey,
             'apikey' => $apikey,
-        ])['globalVar'] ?? null;
+        ])->globalVar ?? null;
     }
 
     /**
@@ -82,7 +82,7 @@ class Script
         return $this->zap->request($this->zap->base . 'script/view/globalCustomVar/', [
             'varKey' => $varkey,
             'apikey' => $apikey,
-        ])['globalCustomVar'] ?? null;
+        ])->globalCustomVar ?? null;
     }
 
     /**
@@ -92,7 +92,7 @@ class Script
     {
         return $this->zap->request($this->zap->base . 'script/view/globalVars/', [
             'apikey' => $apikey,
-        ])['globalVars'] ?? null;
+        ])->globalVars ?? null;
     }
 
     /**
@@ -102,7 +102,7 @@ class Script
     {
         return $this->zap->request($this->zap->base . 'script/view/globalCustomVars/', [
             'apikey' => $apikey,
-        ])['globalCustomVars'] ?? null;
+        ])->globalCustomVars ?? null;
     }
 
     /**
@@ -115,7 +115,7 @@ class Script
             'scriptName' => $scriptname,
             'varKey' => $varkey,
             'apikey' => $apikey,
-        ])['scriptVar'] ?? null;
+        ])->scriptVar ?? null;
     }
 
     /**
@@ -128,7 +128,7 @@ class Script
             'scriptName' => $scriptname,
             'varKey' => $varkey,
             'apikey' => $apikey,
-        ])['scriptCustomVar'] ?? null;
+        ])->scriptCustomVar ?? null;
     }
 
     /**
@@ -140,7 +140,7 @@ class Script
         return $this->zap->request($this->zap->base . 'script/view/scriptVars/', [
             'scriptName' => $scriptname,
             'apikey' => $apikey,
-        ])['scriptVars'] ?? null;
+        ])->scriptVars ?? null;
     }
 
     /**
@@ -152,7 +152,7 @@ class Script
         return $this->zap->request($this->zap->base . 'script/view/scriptCustomVars/', [
             'scriptName' => $scriptname,
             'apikey' => $apikey,
-        ])['scriptCustomVars'] ?? null;
+        ])->scriptCustomVars ?? null;
     }
 
     /**

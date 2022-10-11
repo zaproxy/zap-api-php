@@ -39,7 +39,7 @@ class Authorization
         return $this->zap->request($this->zap->base . 'authorization/view/getAuthorizationDetectionMethod/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getAuthorizationDetectionMethod'] ?? null;
+        ])->getAuthorizationDetectionMethod ?? null;
     }
 
     /**

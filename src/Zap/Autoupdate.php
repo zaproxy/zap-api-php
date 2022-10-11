@@ -38,7 +38,7 @@ class Autoupdate
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/latestVersionNumber/', [
             'apikey' => $apikey,
-        ])['latestVersionNumber'] ?? null;
+        ])->latestVersionNumber ?? null;
     }
 
     /**
@@ -48,7 +48,7 @@ class Autoupdate
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/isLatestVersion/', [
             'apikey' => $apikey,
-        ])['isLatestVersion'] ?? null;
+        ])->isLatestVersion ?? null;
     }
 
     /**
@@ -58,7 +58,7 @@ class Autoupdate
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/installedAddons/', [
             'apikey' => $apikey,
-        ])['installedAddons'] ?? null;
+        ])->installedAddons ?? null;
     }
 
     /**
@@ -68,7 +68,7 @@ class Autoupdate
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/localAddons/', [
             'apikey' => $apikey,
-        ])['localAddons'] ?? null;
+        ])->localAddons ?? null;
     }
 
     /**
@@ -78,7 +78,7 @@ class Autoupdate
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/newAddons/', [
             'apikey' => $apikey,
-        ])['newAddons'] ?? null;
+        ])->newAddons ?? null;
     }
 
     /**
@@ -88,7 +88,7 @@ class Autoupdate
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/updatedAddons/', [
             'apikey' => $apikey,
-        ])['updatedAddons'] ?? null;
+        ])->updatedAddons ?? null;
     }
 
     /**
@@ -98,98 +98,98 @@ class Autoupdate
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/marketplaceAddons/', [
             'apikey' => $apikey,
-        ])['marketplaceAddons'] ?? null;
+        ])->marketplaceAddons ?? null;
     }
 
     public function optionAddonDirectories(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionAddonDirectories/', [
             'apikey' => $apikey,
-        ])['AddonDirectories'] ?? null;
+        ])->AddonDirectories ?? null;
     }
 
     public function optionDayLastChecked(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionDayLastChecked/', [
             'apikey' => $apikey,
-        ])['DayLastChecked'] ?? null;
+        ])->DayLastChecked ?? null;
     }
 
     public function optionDayLastInstallWarned(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionDayLastInstallWarned/', [
             'apikey' => $apikey,
-        ])['DayLastInstallWarned'] ?? null;
+        ])->DayLastInstallWarned ?? null;
     }
 
     public function optionDayLastUpdateWarned(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionDayLastUpdateWarned/', [
             'apikey' => $apikey,
-        ])['DayLastUpdateWarned'] ?? null;
+        ])->DayLastUpdateWarned ?? null;
     }
 
     public function optionDownloadDirectory(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionDownloadDirectory/', [
             'apikey' => $apikey,
-        ])['DownloadDirectory'] ?? null;
+        ])->DownloadDirectory ?? null;
     }
 
     public function optionCheckAddonUpdates(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckAddonUpdates/', [
             'apikey' => $apikey,
-        ])['CheckAddonUpdates'] ?? null;
+        ])->CheckAddonUpdates ?? null;
     }
 
     public function optionCheckOnStart(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionCheckOnStart/', [
             'apikey' => $apikey,
-        ])['CheckOnStart'] ?? null;
+        ])->CheckOnStart ?? null;
     }
 
     public function optionDownloadNewRelease(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionDownloadNewRelease/', [
             'apikey' => $apikey,
-        ])['DownloadNewRelease'] ?? null;
+        ])->DownloadNewRelease ?? null;
     }
 
     public function optionInstallAddonUpdates(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionInstallAddonUpdates/', [
             'apikey' => $apikey,
-        ])['InstallAddonUpdates'] ?? null;
+        ])->InstallAddonUpdates ?? null;
     }
 
     public function optionInstallScannerRules(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionInstallScannerRules/', [
             'apikey' => $apikey,
-        ])['InstallScannerRules'] ?? null;
+        ])->InstallScannerRules ?? null;
     }
 
     public function optionReportAlphaAddons(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportAlphaAddons/', [
             'apikey' => $apikey,
-        ])['ReportAlphaAddons'] ?? null;
+        ])->ReportAlphaAddons ?? null;
     }
 
     public function optionReportBetaAddons(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportBetaAddons/', [
             'apikey' => $apikey,
-        ])['ReportBetaAddons'] ?? null;
+        ])->ReportBetaAddons ?? null;
     }
 
     public function optionReportReleaseAddons(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'autoupdate/view/optionReportReleaseAddons/', [
             'apikey' => $apikey,
-        ])['ReportReleaseAddons'] ?? null;
+        ])->ReportReleaseAddons ?? null;
     }
 
     /**

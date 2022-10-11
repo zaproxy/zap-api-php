@@ -40,7 +40,7 @@ class Wappalyzer
     {
         return $this->zap->request($this->zap->base . 'wappalyzer/view/listSites/', [
             'apikey' => $apikey,
-        ])['listSites'] ?? null;
+        ])->listSites ?? null;
     }
 
     /**
@@ -51,7 +51,7 @@ class Wappalyzer
     {
         return $this->zap->request($this->zap->base . 'wappalyzer/view/listAll/', [
             'apikey' => $apikey,
-        ])['listAll'] ?? null;
+        ])->listAll ?? null;
     }
 
     /**
@@ -63,6 +63,6 @@ class Wappalyzer
         return $this->zap->request($this->zap->base . 'wappalyzer/view/listSite/', [
             'site' => $site,
             'apikey' => $apikey,
-        ])['listSite'] ?? null;
+        ])->listSite ?? null;
     }
 }

@@ -41,7 +41,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/allowedResources/', [
             'apikey' => $apikey,
-        ])['allowedResources'] ?? null;
+        ])->allowedResources ?? null;
     }
 
     /**
@@ -52,7 +52,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/status/', [
             'apikey' => $apikey,
-        ])['status'] ?? null;
+        ])->status ?? null;
     }
 
     /**
@@ -70,7 +70,7 @@ class AjaxSpider
         if ($count !== null) {
             $params['count'] = $count;
         }
-        return $this->zap->request($this->zap->base . 'ajaxSpider/view/results/', $params)['results'] ?? null;
+        return $this->zap->request($this->zap->base . 'ajaxSpider/view/results/', $params)->results ?? null;
     }
 
     /**
@@ -81,7 +81,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/numberOfResults/', [
             'apikey' => $apikey,
-        ])['numberOfResults'] ?? null;
+        ])->numberOfResults ?? null;
     }
 
     /**
@@ -93,7 +93,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/fullResults/', [
             'apikey' => $apikey,
-        ])['fullResults'] ?? null;
+        ])->fullResults ?? null;
     }
 
     /**
@@ -104,7 +104,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionBrowserId/', [
             'apikey' => $apikey,
-        ])['BrowserId'] ?? null;
+        ])->BrowserId ?? null;
     }
 
     /**
@@ -116,7 +116,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionEventWait/', [
             'apikey' => $apikey,
-        ])['EventWait'] ?? null;
+        ])->EventWait ?? null;
     }
 
     /**
@@ -127,7 +127,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionMaxCrawlDepth/', [
             'apikey' => $apikey,
-        ])['MaxCrawlDepth'] ?? null;
+        ])->MaxCrawlDepth ?? null;
     }
 
     /**
@@ -138,7 +138,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionMaxCrawlStates/', [
             'apikey' => $apikey,
-        ])['MaxCrawlStates'] ?? null;
+        ])->MaxCrawlStates ?? null;
     }
 
     /**
@@ -149,7 +149,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionMaxDuration/', [
             'apikey' => $apikey,
-        ])['MaxDuration'] ?? null;
+        ])->MaxDuration ?? null;
     }
 
     /**
@@ -160,7 +160,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionNumberOfBrowsers/', [
             'apikey' => $apikey,
-        ])['NumberOfBrowsers'] ?? null;
+        ])->NumberOfBrowsers ?? null;
     }
 
     /**
@@ -171,7 +171,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionReloadWait/', [
             'apikey' => $apikey,
-        ])['ReloadWait'] ?? null;
+        ])->ReloadWait ?? null;
     }
 
     /**
@@ -183,7 +183,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionClickDefaultElems/', [
             'apikey' => $apikey,
-        ])['ClickDefaultElems'] ?? null;
+        ])->ClickDefaultElems ?? null;
     }
 
     /**
@@ -194,7 +194,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionClickElemsOnce/', [
             'apikey' => $apikey,
-        ])['ClickElemsOnce'] ?? null;
+        ])->ClickElemsOnce ?? null;
     }
 
     /**
@@ -205,7 +205,7 @@ class AjaxSpider
     {
         return $this->zap->request($this->zap->base . 'ajaxSpider/view/optionRandomInputs/', [
             'apikey' => $apikey,
-        ])['RandomInputs'] ?? null;
+        ])->RandomInputs ?? null;
     }
 
     /**

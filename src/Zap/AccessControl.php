@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -40,7 +41,7 @@ class AccessControl
         return $this->zap->request($this->zap->base . 'accessControl/view/getScanProgress/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getScanProgress'] ?? null;
+        ])->getScanProgress ?? null;
     }
 
     /**
@@ -52,7 +53,7 @@ class AccessControl
         return $this->zap->request($this->zap->base . 'accessControl/view/getScanStatus/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getScanStatus'] ?? null;
+        ])->getScanStatus ?? null;
     }
 
     /**

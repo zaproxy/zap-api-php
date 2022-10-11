@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -40,7 +41,7 @@ class AlertFilter
         return $this->zap->request($this->zap->base . 'alertFilter/view/alertFilterList/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['alertFilterList'] ?? null;
+        ])->alertFilterList ?? null;
     }
 
     /**
@@ -51,7 +52,7 @@ class AlertFilter
     {
         return $this->zap->request($this->zap->base . 'alertFilter/view/globalAlertFilterList/', [
             'apikey' => $apikey,
-        ])['globalAlertFilterList'] ?? null;
+        ])->globalAlertFilterList ?? null;
     }
 
     /**

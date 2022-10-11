@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -22,12 +21,12 @@ namespace Zap;
 
 /**
  * This file was automatically generated.
- *
- * @property Zap $zap
  */
 class Network
 {
-    public function __construct($zap)
+    private Zap $zap;
+
+    public function __construct(Zap $zap)
     {
         $this->zap = $zap;
     }
@@ -36,169 +35,169 @@ class Network
      * Gets the Root CA certificate validity, in days. Used when generating a new Root CA certificate. This component is
      * optional and therefore the API will only work if it is installed
      */
-    public function getRootCaCertValidity($apikey = '')
+    public function getRootCaCertValidity(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getRootCaCertValidity/', [
             'apikey' => $apikey,
-        ])['getRootCaCertValidity'] ?? null;
+        ])->getRootCaCertValidity ?? null;
     }
 
     /**
      * Gets the server certificate validity, in days. Used when generating server certificates. This component is
      * optional and therefore the API will only work if it is installed
      */
-    public function getServerCertValidity($apikey = '')
+    public function getServerCertValidity(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getServerCertValidity/', [
             'apikey' => $apikey,
-        ])['getServerCertValidity'] ?? null;
+        ])->getServerCertValidity ?? null;
     }
 
     /**
      * Gets the aliases used to identify the local servers/proxies. This component is optional and therefore the API
      * will only work if it is installed
      */
-    public function getAliases($apikey = '')
+    public function getAliases(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getAliases/', [
             'apikey' => $apikey,
-        ])['getAliases'] ?? null;
+        ])->getAliases ?? null;
     }
 
     /**
      * Gets the local servers/proxies. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function getLocalServers($apikey = '')
+    public function getLocalServers(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getLocalServers/', [
             'apikey' => $apikey,
-        ])['getLocalServers'] ?? null;
+        ])->getLocalServers ?? null;
     }
 
     /**
      * Gets the authorities that will pass-through the local proxies. This component is optional and therefore the API
      * will only work if it is installed
      */
-    public function getPassThroughs($apikey = '')
+    public function getPassThroughs(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getPassThroughs/', [
             'apikey' => $apikey,
-        ])['getPassThroughs'] ?? null;
+        ])->getPassThroughs ?? null;
     }
 
     /**
      * Gets the connection timeout, in seconds. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function getConnectionTimeout($apikey = '')
+    public function getConnectionTimeout(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getConnectionTimeout/', [
             'apikey' => $apikey,
-        ])['getConnectionTimeout'] ?? null;
+        ])->getConnectionTimeout ?? null;
     }
 
     /**
      * Gets the default user-agent. This component is optional and therefore the API will only work if it is installed
      */
-    public function getDefaultUserAgent($apikey = '')
+    public function getDefaultUserAgent(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getDefaultUserAgent/', [
             'apikey' => $apikey,
-        ])['getDefaultUserAgent'] ?? null;
+        ])->getDefaultUserAgent ?? null;
     }
 
     /**
      * Gets the TTL (in seconds) of successful DNS queries. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function getDnsTtlSuccessfulQueries($apikey = '')
+    public function getDnsTtlSuccessfulQueries(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getDnsTtlSuccessfulQueries/', [
             'apikey' => $apikey,
-        ])['getDnsTtlSuccessfulQueries'] ?? null;
+        ])->getDnsTtlSuccessfulQueries ?? null;
     }
 
     /**
      * Gets the HTTP proxy. This component is optional and therefore the API will only work if it is installed
      */
-    public function getHttpProxy($apikey = '')
+    public function getHttpProxy(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getHttpProxy/', [
             'apikey' => $apikey,
-        ])['getHttpProxy'] ?? null;
+        ])->getHttpProxy ?? null;
     }
 
     /**
      * Gets the HTTP proxy exclusions. This component is optional and therefore the API will only work if it is
      * installed
      */
-    public function getHttpProxyExclusions($apikey = '')
+    public function getHttpProxyExclusions(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getHttpProxyExclusions/', [
             'apikey' => $apikey,
-        ])['getHttpProxyExclusions'] ?? null;
+        ])->getHttpProxyExclusions ?? null;
     }
 
     /**
      * Gets the SOCKS proxy. This component is optional and therefore the API will only work if it is installed
      */
-    public function getSocksProxy($apikey = '')
+    public function getSocksProxy(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/getSocksProxy/', [
             'apikey' => $apikey,
-        ])['getSocksProxy'] ?? null;
+        ])->getSocksProxy ?? null;
     }
 
     /**
      * Tells whether or not the HTTP proxy authentication is enabled. This component is optional and therefore the API
      * will only work if it is installed
      */
-    public function isHttpProxyAuthEnabled($apikey = '')
+    public function isHttpProxyAuthEnabled(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/isHttpProxyAuthEnabled/', [
             'apikey' => $apikey,
-        ])['isHttpProxyAuthEnabled'] ?? null;
+        ])->isHttpProxyAuthEnabled ?? null;
     }
 
     /**
      * Tells whether or not the HTTP proxy is enabled. This component is optional and therefore the API will only work
      * if it is installed
      */
-    public function isHttpProxyEnabled($apikey = '')
+    public function isHttpProxyEnabled(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/isHttpProxyEnabled/', [
             'apikey' => $apikey,
-        ])['isHttpProxyEnabled'] ?? null;
+        ])->isHttpProxyEnabled ?? null;
     }
 
     /**
      * Tells whether or not the SOCKS proxy is enabled. This component is optional and therefore the API will only work
      * if it is installed
      */
-    public function isSocksProxyEnabled($apikey = '')
+    public function isSocksProxyEnabled(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/isSocksProxyEnabled/', [
             'apikey' => $apikey,
-        ])['isSocksProxyEnabled'] ?? null;
+        ])->isSocksProxyEnabled ?? null;
     }
 
     /**
      * Tells whether or not to use global HTTP state. This component is optional and therefore the API will only work if
      * it is installed
      */
-    public function isUseGlobalHttpState($apikey = '')
+    public function isUseGlobalHttpState(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/view/isUseGlobalHttpState/', [
             'apikey' => $apikey,
-        ])['isUseGlobalHttpState'] ?? null;
+        ])->isUseGlobalHttpState ?? null;
     }
 
     /**
      * Generates a new Root CA certificate, used to issue server certificates. This component is optional and therefore
      * the API will only work if it is installed
      */
-    public function generateRootCaCert($apikey = '')
+    public function generateRootCaCert(string $apikey = '')
     {
         return $this->zap->request($this->zap->base . 'network/action/generateRootCaCert/', [
             'apikey' => $apikey,
@@ -268,7 +267,7 @@ class Network
         $behindnat = null,
         $decoderesponse = null,
         $removeacceptencoding = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'address' => $address,
@@ -503,7 +502,7 @@ class Network
         $usedns = null,
         $username = null,
         $password = null,
-        $apikey = ''
+        string $apikey = ''
     ) {
         $params = [
             'host' => $host,
@@ -582,7 +581,7 @@ class Network
      * Provides a PAC file, proxying through the main proxy. This component is optional and therefore the API will only
      * work if it is installed
      */
-    public function proxypac($apikey = '')
+    public function proxypac(string $apikey = '')
     {
         return $this->zap->requestOther($this->zap->base_other . 'network/other/proxy.pac/', [
             'apikey' => $apikey,
@@ -605,7 +604,7 @@ class Network
      * Gets the Root CA certificate used to issue server certificates. Suitable to import into client applications (e.g.
      * browsers). This component is optional and therefore the API will only work if it is installed
      */
-    public function rootCaCert($apikey = '')
+    public function rootCaCert(string $apikey = '')
     {
         return $this->zap->requestOther($this->zap->base_other . 'network/other/rootCaCert/', [
             'apikey' => $apikey,

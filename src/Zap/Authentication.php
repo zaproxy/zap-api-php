@@ -38,7 +38,7 @@ class Authentication
     {
         return $this->zap->request($this->zap->base . 'authentication/view/getSupportedAuthenticationMethods/', [
             'apikey' => $apikey,
-        ])['getSupportedAuthenticationMethods'] ?? null;
+        ])->getSupportedAuthenticationMethods ?? null;
     }
 
     /**
@@ -49,7 +49,7 @@ class Authentication
         return $this->zap->request($this->zap->base . 'authentication/view/getAuthenticationMethodConfigParams/', [
             'authMethodName' => $authmethodname,
             'apikey' => $apikey,
-        ])['getAuthenticationMethodConfigParams'] ?? null;
+        ])->getAuthenticationMethodConfigParams ?? null;
     }
 
     /**
@@ -60,7 +60,7 @@ class Authentication
         return $this->zap->request($this->zap->base . 'authentication/view/getAuthenticationMethod/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getAuthenticationMethod'] ?? null;
+        ])->getAuthenticationMethod ?? null;
     }
 
     /**
@@ -71,7 +71,7 @@ class Authentication
         return $this->zap->request($this->zap->base . 'authentication/view/getLoggedInIndicator/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getLoggedInIndicator'] ?? null;
+        ])->getLoggedInIndicator ?? null;
     }
 
     /**
@@ -82,7 +82,7 @@ class Authentication
         return $this->zap->request($this->zap->base . 'authentication/view/getLoggedOutIndicator/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getLoggedOutIndicator'] ?? null;
+        ])->getLoggedOutIndicator ?? null;
     }
 
     /**

@@ -40,7 +40,7 @@ class Reveal
     {
         return $this->zap->request($this->zap->base . 'reveal/view/reveal/', [
             'apikey' => $apikey,
-        ])['reveal'] ?? null;
+        ])->reveal ?? null;
     }
 
     /**

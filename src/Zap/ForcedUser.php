@@ -38,7 +38,7 @@ class ForcedUser
     {
         return $this->zap->request($this->zap->base . 'forcedUser/view/isForcedUserModeEnabled/', [
             'apikey' => $apikey,
-        ])['isForcedUserModeEnabled'] ?? null;
+        ])->isForcedUserModeEnabled ?? null;
     }
 
     /**
@@ -49,7 +49,7 @@ class ForcedUser
         return $this->zap->request($this->zap->base . 'forcedUser/view/getForcedUser/', [
             'contextId' => $contextid,
             'apikey' => $apikey,
-        ])['getForcedUser'] ?? null;
+        ])->getForcedUser ?? null;
     }
 
     /**

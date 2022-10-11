@@ -21,7 +21,7 @@ $target = "http://target.example.com/";
 
 $zap = new Zap\Zap('tcp://localhost:8090');
 
-$version = @$zap->core->version();
+$version = $zap->core->version();
 if (is_null($version)) {
   echo "PHP API error\n";
   exit();
@@ -31,11 +31,11 @@ if (is_null($version)) {
 
 echo "Spidering target ${target}\n";
 // Give the Spider a chance to start
-$resObj = $zap->spider->scan($target, 'YOUR_IP_KEY');
-if (property_exists($resObj, 'code')) {
+$res = $zap->spider->scan($target, 'YOUR_IP_KEY');
+if (isset($res->code)) {
     echo "Error:\n";
-    echo "  code = {$resObj->code}\n";
-    echo "  message = {$resObj->message}\n";
+    echo "  code = $res->code\n";
+    echo "  message = $res->message ?? ''\n";
     exit();
 }
 while ((int)($zap->spider->status()) < 100) {
@@ -47,11 +47,11 @@ echo "Spider completed\n";
 sleep(5);
 
 echo "Scanning target ${target}\n";
-$resObj = $zap->ascan->scan($target, 0, 0, 'YOUR_IP_KEY');
-if (property_exists($resObj, 'code')) {
+$res = $zap->ascan->scan($target, 0, 0, 'YOUR_IP_KEY');
+if (isset($res->code)) {
     echo "Error:\n";
-    echo "  code = {$resObj->code}\n";
-    echo "  message = {$resObj->message}\n";
+    echo "  code = $res->code\n";
+    echo "  message = $resObj->message\n";
     exit();
 }
 while ((int)($zap->ascan->status()) < 100) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zed Attack Proxy (ZAP) and its related class files.
  *
@@ -39,7 +40,7 @@ class Replacer
     {
         return $this->zap->request($this->zap->base . 'replacer/view/rules/', [
             'apikey' => $apikey,
-        ])['rules'] ?? null;
+        ])->rules ?? null;
     }
 
     /**

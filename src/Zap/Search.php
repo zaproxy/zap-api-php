@@ -50,7 +50,7 @@ class Search
         if ($count !== null) {
             $params['count'] = $count;
         }
-        return $this->zap->request($this->zap->base . 'search/view/urlsByUrlRegex/', $params)['urlsByUrlRegex'] ?? null;
+        return $this->zap->request($this->zap->base . 'search/view/urlsByUrlRegex/', $params)->urlsByUrlRegex ?? null;
     }
 
     /**
@@ -75,7 +75,7 @@ class Search
         return $this->zap->request(
             $this->zap->base . 'search/view/urlsByRequestRegex/',
             $params
-        )['urlsByRequestRegex'] ?? null;
+        )->urlsByRequestRegex ?? null;
     }
 
     /**
@@ -100,7 +100,7 @@ class Search
         return $this->zap->request(
             $this->zap->base . 'search/view/urlsByResponseRegex/',
             $params
-        )['urlsByResponseRegex'] ?? null;
+        )->urlsByResponseRegex ?? null;
     }
 
     /**
@@ -125,7 +125,7 @@ class Search
         return $this->zap->request(
             $this->zap->base . 'search/view/urlsByHeaderRegex/',
             $params
-        )['urlsByHeaderRegex'] ?? null;
+        )->urlsByHeaderRegex ?? null;
     }
 
     /**
@@ -150,7 +150,7 @@ class Search
         return $this->zap->request(
             $this->zap->base . 'search/view/messagesByUrlRegex/',
             $params
-        )['messagesByUrlRegex'] ?? null;
+        )->messagesByUrlRegex ?? null;
     }
 
     /**
@@ -175,7 +175,7 @@ class Search
         return $this->zap->request(
             $this->zap->base . 'search/view/messagesByRequestRegex/',
             $params
-        )['messagesByRequestRegex'] ?? null;
+        )->messagesByRequestRegex ?? null;
     }
 
     /**
@@ -200,7 +200,7 @@ class Search
         return $this->zap->request(
             $this->zap->base . 'search/view/messagesByResponseRegex/',
             $params
-        )['messagesByResponseRegex'] ?? null;
+        )->messagesByResponseRegex ?? null;
     }
 
     /**
@@ -225,7 +225,7 @@ class Search
         return $this->zap->request(
             $this->zap->base . 'search/view/messagesByHeaderRegex/',
             $params
-        )['messagesByHeaderRegex'] ?? null;
+        )->messagesByHeaderRegex ?? null;
     }
 
     /**

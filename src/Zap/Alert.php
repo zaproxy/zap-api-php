@@ -40,7 +40,7 @@ class Alert
         return $this->zap->request($this->zap->base . 'alert/view/alert/', [
             'id' => $id,
             'apikey' => $apikey,
-        ])['alert'] ?? null;
+        ])->alert ?? null;
     }
 
     /**
@@ -64,7 +64,7 @@ class Alert
         if ($riskid !== null) {
             $params['riskId'] = $riskid;
         }
-        return $this->zap->request($this->zap->base . 'alert/view/alerts/', $params)['alerts'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/alerts/', $params)->alerts ?? null;
     }
 
     /**
@@ -78,7 +78,7 @@ class Alert
         if ($baseurl !== null) {
             $params['baseurl'] = $baseurl;
         }
-        return $this->zap->request($this->zap->base . 'alert/view/alertsSummary/', $params)['alertsSummary'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/alertsSummary/', $params)->alertsSummary ?? null;
     }
 
     /**
@@ -95,7 +95,7 @@ class Alert
         if ($riskid !== null) {
             $params['riskId'] = $riskid;
         }
-        return $this->zap->request($this->zap->base . 'alert/view/numberOfAlerts/', $params)['numberOfAlerts'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/numberOfAlerts/', $params)->numberOfAlerts ?? null;
     }
 
     /**
@@ -114,7 +114,7 @@ class Alert
         if ($recurse !== null) {
             $params['recurse'] = $recurse;
         }
-        return $this->zap->request($this->zap->base . 'alert/view/alertsByRisk/', $params)['alertsByRisk'] ?? null;
+        return $this->zap->request($this->zap->base . 'alert/view/alertsByRisk/', $params)->alertsByRisk ?? null;
     }
 
     /**
@@ -134,7 +134,7 @@ class Alert
         return $this->zap->request(
             $this->zap->base . 'alert/view/alertCountsByRisk/',
             $params
-        )['alertCountsByRisk'] ?? null;
+        )->alertCountsByRisk ?? null;
     }
 
     /**

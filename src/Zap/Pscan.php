@@ -38,7 +38,7 @@ class Pscan
     {
         return $this->zap->request($this->zap->base . 'pscan/view/scanOnlyInScope/', [
             'apikey' => $apikey,
-        ])['scanOnlyInScope'] ?? null;
+        ])->scanOnlyInScope ?? null;
     }
 
     /**
@@ -48,7 +48,7 @@ class Pscan
     {
         return $this->zap->request($this->zap->base . 'pscan/view/recordsToScan/', [
             'apikey' => $apikey,
-        ])['recordsToScan'] ?? null;
+        ])->recordsToScan ?? null;
     }
 
     /**
@@ -58,7 +58,7 @@ class Pscan
     {
         return $this->zap->request($this->zap->base . 'pscan/view/scanners/', [
             'apikey' => $apikey,
-        ])['scanners'] ?? null;
+        ])->scanners ?? null;
     }
 
     /**
@@ -68,7 +68,7 @@ class Pscan
     {
         return $this->zap->request($this->zap->base . 'pscan/view/currentRule/', [
             'apikey' => $apikey,
-        ])['currentRule'] ?? null;
+        ])->currentRule ?? null;
     }
 
     /**
@@ -78,7 +78,7 @@ class Pscan
     {
         return $this->zap->request($this->zap->base . 'pscan/view/currentTasks/', [
             'apikey' => $apikey,
-        ])['currentTasks'] ?? null;
+        ])->currentTasks ?? null;
     }
 
     /**
@@ -88,7 +88,7 @@ class Pscan
     {
         return $this->zap->request($this->zap->base . 'pscan/view/maxAlertsPerRule/', [
             'apikey' => $apikey,
-        ])['maxAlertsPerRule'] ?? null;
+        ])->maxAlertsPerRule ?? null;
     }
 
     /**
