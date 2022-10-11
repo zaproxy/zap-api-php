@@ -32,7 +32,7 @@ class Spider
         $this->zap = $zap;
     }
 
-    public function status($scanid = null, string $apikey = '')
+    public function status($scanid = null, string $apikey = ''): int
     {
         $params = [
             'apikey' => $apikey,
@@ -40,7 +40,7 @@ class Spider
         if ($scanid !== null) {
             $params['scanId'] = $scanid;
         }
-        return $this->zap->request($this->zap->base . 'spider/view/status/', $params)->status ?? null;
+        return (int) ($this->zap->request($this->zap->base . 'spider/view/status/', $params)->status ?? '0');
     }
 
     public function results($scanid = null, string $apikey = '')

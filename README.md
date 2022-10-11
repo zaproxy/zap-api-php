@@ -38,7 +38,7 @@ if (isset($res->code)) {
     echo "  message = $res->message ?? ''\n";
     exit();
 }
-while ((int)($zap->spider->status()) < 100) {
+while ($zap->spider->status() < 100) {
   echo "Spider progress {$zap->spider->status()}%\n";
   sleep(2);
 }
@@ -51,10 +51,10 @@ $res = $zap->ascan->scan($target, 0, 0, 'YOUR_IP_KEY');
 if (isset($res->code)) {
     echo "Error:\n";
     echo "  code = $res->code\n";
-    echo "  message = $resObj->message\n";
+    echo "  message = $res->message\n";
     exit();
 }
-while ((int)($zap->ascan->status()) < 100) {
+while ($zap->ascan->status() < 100) {
   echo "Scan progress {$zap->ascan->status()}%\n";
   sleep(2);
 }
@@ -97,3 +97,5 @@ cd zap-extensions
 ZAP_RELEASE=1 ZAP_JAVA_VERSION=11 ./gradlew --include-build ../zaproxy :aO:network:generatePhpZapApiClientFiles --continue
 cd -
 ```
+
+**Note:** This library is based on the elements generated form the main zaproxy repository like every other language library in zaproxy environment. While lack of typing might be inconvenient it is better to be consistent.
