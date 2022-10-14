@@ -1,0 +1,35 @@
+{
+    "name": "zaproxy/zap-api",
+    "type": "library",
+    "authors": [
+        {
+            "name": "José Carlos Chávez",
+            "email": "jcchavezs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Zap\\": "./src/Zap/"
+        }
+    },
+    "require": {
+        "ext-curl": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.85",
+        "symplify/coding-standard": "^11.1",
+        "symplify/easy-coding-standard": "^11.1"
+    },
+    "scripts": {
+        "lint": "./vendor/bin/ecs check src",
+        "fix-lint": "./vendor/bin/ecs check src --fix",
+        "generate": [
+            "cd ../zaproxy && ./gradlew generatePhpApiEndpoints",
+            "cd ../zap-extensions && ZAP_RELEASE=1 ZAP_JAVA_VERSION=11 ./gradlew --include-build ../zaproxy :aO:network:generatePhpZapApiClientFiles --continue || true",
+            "@fix-lint -- -q",
+            "@fix-lint -- -q",
+            "@lint"
+        ],
+        "static-check": "./vendor/bin/phpstan analyse -l 2 src"
+    }
+}
